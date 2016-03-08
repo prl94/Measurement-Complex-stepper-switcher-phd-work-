@@ -1,0 +1,24 @@
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.Form1.resources
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.Properties.Resources.resources
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
+C:\Users\Володя\Documents\Visual Studio 2012\Projects\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.Properties.Resources.resources
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.Form1.resources
+C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.Form1.resources
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.Properties.Resources.resources
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
