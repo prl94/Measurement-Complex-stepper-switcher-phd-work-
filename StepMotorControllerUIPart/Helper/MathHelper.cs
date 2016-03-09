@@ -8,43 +8,32 @@ namespace StepMotorControllerUIPart.Helper
 {
     class MathHelper
     {
+        private List<MesureDto> _mesures;
 
-
-
-
-        public static double CalculateDispersion(List<MesureDto> mesuresList)
+        public MathHelper(List<MesureDto> mesures)
         {
-            return 1.2;
+            _mesures = mesures;
+
         }
 
-       
-
-        public double CalculateAvarageValue(List<MesureDto> mesuresList)
+        private double getStandardDeviation(double[] list)
         {
-            return 1.2;
+            double average = list.Average();
+            double sumOfSquaresOfDifferences = list.Select(val => (val - average) * (val - average)).Sum();
+            return Math.Sqrt(sumOfSquaresOfDifferences / list.Length);
         }
-    //    private List<double> DivadingValues()
-     //   {
-      //      var divadingValues = new List<double>();
-          //  int oCount = _oscillatorOutputList.Count;
-         //   int sCount = _switcherOutputList.Count;
 
-        //    if (oCount == sCount)
-  //          {
-        //        for (int i = 0; i < oCount; i++)
-   //             {
-   //      //           if (_switcherOutputList[i] != 0)
-   //                 {
-           //             divadingValues.Add(_switcherOutputList[i] / _oscillatorOutputList[i]);
-    //                }
-          //          else
-          //          {
-          //              divadingValues.Add(_switcherOutputList[i] / 0.001);
-    //                }
-    //            }
-    //        }
-        //    return divadingValues;
-   //     }
+            private double[] DivadingValues(MesureDto mesuresList)
+           {
+                double[] divadingValues = new double[mesuresList.DataFromOscillatorArray.Length];
+                double[] dataFromOscillator = mesuresList.DataFromOscillatorArray;
+                double[] dataFromSwircher = mesuresList.DataFromSwitcherArray;
+                for (int i = 0; i < divadingValues.Length; i++)
+                {
+                    divadingValues[i] = dataFromSwircher[i]/dataFromOscillator[i];
+                }
+                return divadingValues;
+           }
 
 
     }

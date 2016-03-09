@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
@@ -83,7 +84,7 @@ namespace StepMotorControllerUIPart.SerialPortController
 
             var dataFromOscillatorRandomArray = new double[mesurements];
             var dataFromSwitcherRandomArray = new double[mesurements];
-            
+            // hear listed data from adt
             for (int n = 0; n < mesurements; n++)
             {
                 dataFromOscillatorRandomArray[n] = ThreadSafeRandom.NextDouble();

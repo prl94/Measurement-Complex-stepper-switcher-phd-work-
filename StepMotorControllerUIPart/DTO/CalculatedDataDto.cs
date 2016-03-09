@@ -11,8 +11,6 @@ namespace StepMotorControllerUIPart.DTO
         public readonly double Dispersion;
         public readonly double Average;
 
-
-
         public static List<CalculatedDataDto> allResults;
     }
 }

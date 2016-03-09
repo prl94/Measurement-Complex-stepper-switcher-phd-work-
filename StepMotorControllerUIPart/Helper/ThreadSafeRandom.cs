@@ -5,9 +5,9 @@ using System.Text;
 
 namespace StepMotorControllerUIPart.Helper
 {
-    class ThreadSafeRandom
+    static class ThreadSafeRandom
     {
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
 
         public static double NextDouble()
         {
