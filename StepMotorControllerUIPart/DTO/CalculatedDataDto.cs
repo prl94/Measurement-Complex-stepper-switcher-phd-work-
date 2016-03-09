@@ -9,8 +9,14 @@ namespace StepMotorControllerUIPart.DTO
     {
         public readonly int SwitcherPosition;
         public readonly double Dispersion;
-        public readonly double Average;
+        public readonly double AverageValue;
 
-        public static List<CalculatedDataDto> allResults;
+
+        public CalculatedDataDto(int switcherPosition, double dispersion, double averageValue)
+        {
+            SwitcherPosition = switcherPosition;
+            Dispersion = dispersion;
+            AverageValue = averageValue;
+        }
     }
 }

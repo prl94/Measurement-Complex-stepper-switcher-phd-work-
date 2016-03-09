@@ -5,12 +5,12 @@ namespace StepMotorControllerUIPart.DTO
     public class ParametersDto
     {
         public readonly int StepsCount;
-        public readonly int DelayInterval;
+        public readonly int MesuresCount;
 
-        public ParametersDto(int stepsCount, int delayInterval)
+        public ParametersDto(int stepsCount, int mesuresCount)
         {
             StepsCount = stepsCount;
-            DelayInterval = delayInterval;
+            MesuresCount = mesuresCount;
         }
 
     }

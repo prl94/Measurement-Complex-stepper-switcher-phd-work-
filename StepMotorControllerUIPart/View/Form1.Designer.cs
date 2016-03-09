@@ -32,12 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.stepsCountTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.delayTextBox = new System.Windows.Forms.TextBox();
+            this.mesuresCountTextBox = new System.Windows.Forms.TextBox();
             this.startButton = new System.Windows.Forms.Button();
             this.serialPortsComboBox = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.zedGraph = new ZedGraph.ZedGraphControl();
             this.drawGraph = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -61,31 +62,31 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Затримка на кроці ";
+            this.label2.Text = "Кількість вимірів";
             // 
-            // delayTextBox
+            // mesuresCountTextBox
             // 
-            this.delayTextBox.Location = new System.Drawing.Point(120, 65);
-            this.delayTextBox.Name = "delayTextBox";
-            this.delayTextBox.Size = new System.Drawing.Size(100, 20);
-            this.delayTextBox.TabIndex = 3;
+            this.mesuresCountTextBox.Location = new System.Drawing.Point(120, 65);
+            this.mesuresCountTextBox.Name = "mesuresCountTextBox";
+            this.mesuresCountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.mesuresCountTextBox.TabIndex = 3;
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(16, 101);
+            this.startButton.Location = new System.Drawing.Point(12, 104);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(75, 23);
+            this.startButton.Size = new System.Drawing.Size(101, 23);
             this.startButton.TabIndex = 4;
-            this.startButton.Text = "Почати";
+            this.startButton.Text = "Старт";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // serialPortsComboBox
             // 
             this.serialPortsComboBox.FormattingEnabled = true;
-            this.serialPortsComboBox.Location = new System.Drawing.Point(12, 12);
+            this.serialPortsComboBox.Location = new System.Drawing.Point(12, 385);
             this.serialPortsComboBox.Name = "serialPortsComboBox";
             this.serialPortsComboBox.Size = new System.Drawing.Size(86, 21);
             this.serialPortsComboBox.TabIndex = 5;
@@ -116,16 +117,26 @@
             this.drawGraph.UseVisualStyleBackColor = true;
             this.drawGraph.Click += new System.EventHandler(this.drawGraph_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(70, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Параметри";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 418);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.drawGraph);
             this.Controls.Add(this.zedGraph);
             this.Controls.Add(this.serialPortsComboBox);
             this.Controls.Add(this.startButton);
-            this.Controls.Add(this.delayTextBox);
+            this.Controls.Add(this.mesuresCountTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.stepsCountTextBox);
             this.Controls.Add(this.label1);
@@ -141,12 +152,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox stepsCountTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox delayTextBox;
+        private System.Windows.Forms.TextBox mesuresCountTextBox;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.ComboBox serialPortsComboBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ZedGraph.ZedGraphControl zedGraph;
         private System.Windows.Forms.Button drawGraph;
+        private System.Windows.Forms.Label label3;
     }
 }
 

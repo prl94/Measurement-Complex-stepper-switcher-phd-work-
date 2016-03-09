@@ -9,7 +9,7 @@ using StepMotorControllerUIPart.Helper;
 
 namespace StepMotorControllerUIPart.SerialPortController
 {
-    static  class ComPortController
+    public static class ComPortController
     {
         private static SerialPort _port;
 
@@ -54,7 +54,30 @@ namespace StepMotorControllerUIPart.SerialPortController
             return SerialPort.GetPortNames();
         }
 
-        public static bool SendDataToSwitcherController(byte count, byte seconds)
+
+
+        private static bool MakeOneStep()
+        {
+            if (_port == null)
+            {
+                return false;
+            }
+            bool switched = false;
+                
+            byte[] data = {255, 1};
+            _port.Write(data, 0, data.Length);
+      
+            while (!switched)
+            {
+                if(_port.ReadLine().Contains("switched"))
+                   switched = true;         
+            }
+            return switched;
+            }
+        
+
+
+        public static bool SendDataToSwitcherController(byte count)
         {
             if (_port == null)
             {
@@ -62,19 +85,18 @@ namespace StepMotorControllerUIPart.SerialPortController
             }
             else
             {
-                byte[] data = {255, count, seconds};
+                byte[] data = {255, count};
                 _port.Write(data, 0, data.Length);
                 return true;
             }
         }
 
-        public static List<MesureDto> CatchDataFromADTs(int stepsCount, int mesurements)
+        public static List<MesureDto> StartMesures(ParametersDto mesureParameters)
         {
-
             var mesuresPack = new List<MesureDto>();
-            for (int i = 0; i <= stepsCount; i++)
+            for (int i = 0; i <= mesureParameters.StepsCount; i++)
             {
-                mesuresPack.Add(CatchStepDataPack(i, mesurements));
+                mesuresPack.Add(CatchStepDataPack(i, mesureParameters.MesuresCount));
             }
             return mesuresPack;
         }
@@ -84,6 +106,7 @@ namespace StepMotorControllerUIPart.SerialPortController
 
             var dataFromOscillatorRandomArray = new double[mesurements];
             var dataFromSwitcherRandomArray = new double[mesurements];
+           
             // hear listed data from adt
             for (int n = 0; n < mesurements; n++)
             {
@@ -91,6 +114,16 @@ namespace StepMotorControllerUIPart.SerialPortController
                 dataFromSwitcherRandomArray[n] = ThreadSafeRandom.NextDouble();
             }
             return new MesureDto(step, dataFromOscillatorRandomArray, dataFromSwitcherRandomArray);
+        }
+
+
+
+
+
+
+        public static List<MesureDto> GetTestMesuresList(ParametersDto mesureParameters)
+        {
+            return StartMesures(mesureParameters);
         }
     }
 }

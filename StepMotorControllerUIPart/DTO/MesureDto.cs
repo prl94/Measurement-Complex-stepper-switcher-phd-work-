@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StepMotorControllerUIPart.DTO
 {
-    class MesureDto
+    public class MesureDto
     {
         public readonly int SwitcherPosition;
         public readonly double[] DataFromOscillatorArray;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using StepMotorControllerUIPart.DTO;
+using StepMotorControllerUIPart.Helper;
 using StepMotorControllerUIPart.SerialPortController;
 using ZedGraph;
 
@@ -11,10 +12,33 @@ namespace StepMotorControllerUIPart.Controller
     class GlobalController
     {
 
+        public static bool SendDataToSwitcherController(int steps)
+        {
+            return ComPortController.SendDataToSwitcherController((byte)steps);
+        }
+
+        public static PointPairList StartTestMesures(ParametersDto parameters)
+        {
+
+            MathHelper myHelper  = new MathHelper(ComPortController.GetTestMesuresList(parameters));
+
+            var calculetedList = myHelper.getCalculatedData();
+            myHelper.IEfective();
+
+           var myDict = new Dictionary<int, double>();
+
+           foreach (var value in calculetedList)
+            {
+                myDict.Add(value.SwitcherPosition, value.AverageValue);
+            }
+
+            return GraphPointsGenerator(myDict);
+        }
+
         public static Dictionary<int, double> StartMesures(ParametersDto parameters)
         {
 
-            var testData = ComPortController.CatchDataFromADTs(parameters.StepsCount, 20);
+            var testData = ComPortController.StartMesures(parameters);
 
             foreach (var mesure in testData)
             {
@@ -27,7 +51,7 @@ namespace StepMotorControllerUIPart.Controller
             return null;
         }
 
-        private PointPairList GraphPointsGenerator(Dictionary<double, double> lineArray)
+        private static PointPairList GraphPointsGenerator(Dictionary<int, double> lineArray)
         {
             var pointList = new PointPairList();
 

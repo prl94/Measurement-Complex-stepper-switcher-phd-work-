@@ -25,19 +25,7 @@ namespace StepMotorControllerUIPart.View
   
         private void startButton_Click(object sender, EventArgs e)
         {
-            int steps = Int32.Parse(stepsCountTextBox.Text);
-            int seconds = Int32.Parse(delayTextBox.Text);
-            _steps = steps;
-            _seconds = seconds;
-
-            var state = ComPortController.SendDataToSwitcherController((byte)steps, (byte)seconds);
-
-            Console.WriteLine(@"Data sended? " + state + @" Port is open? " + ComPortController.PortIsOpen());
-            if (!state)
-            {
-                ShowMessageBox(@"Data sended? " + state + @" Port is open? "+ ComPortController.PortIsOpen());
-            }
-            
+            ParametersDto parameters = new ParametersDto(Int32.Parse(stepsCountTextBox.Text),Int32.Parse(mesuresCountTextBox.Text));
         }
 
         private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,11 +86,14 @@ namespace StepMotorControllerUIPart.View
 
         private void drawGraph_Click(object sender, EventArgs e)
         {
-            ParametersDto parameters = new ParametersDto(_steps, _seconds);
+            ParametersDto parameters = new ParametersDto(Int32.Parse(stepsCountTextBox.Text),Int32.Parse(mesuresCountTextBox.Text));
 
-            GlobalController.StartMesures(parameters);
+            DrawLineGraph( GlobalController.StartTestMesures(parameters));
+
+
 
         }
+
     }
     
 }
