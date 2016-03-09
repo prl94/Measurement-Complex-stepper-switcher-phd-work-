@@ -49,8 +49,8 @@
   <ItemGroup>
     <Compile Include="Controller\GlobalController.cs" />
     <Compile Include="DTO\CalculatedDataDto.cs" />
+    <Compile Include="DTO\ParametersDto.cs" />
     <Compile Include="DTO\MesureDto.cs" />
-    <Compile Include="Helper\Dimention.cs" />
     <Compile Include="Helper\MathHelper.cs" />
     <Compile Include="Helper\ThreadSafeRandom.cs" />
     <Compile Include="SerialPortController\ComPortController.cs" />

@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO.Ports;
 using System.Windows.Forms;
+using StepMotorControllerUIPart.Controller;
+using StepMotorControllerUIPart.DTO;
 using StepMotorControllerUIPart.SerialPortController;
 using ZedGraph;
 
@@ -11,8 +13,8 @@ namespace StepMotorControllerUIPart.View
 {
     public partial class Form1 : Form
     {
-
-        private Stopwatch stopwatch = new Stopwatch();
+        private int _steps;
+        private int _seconds;
 
 
         public Form1()
@@ -25,6 +27,8 @@ namespace StepMotorControllerUIPart.View
         {
             int steps = Int32.Parse(stepsCountTextBox.Text);
             int seconds = Int32.Parse(delayTextBox.Text);
+            _steps = steps;
+            _seconds = seconds;
 
             var state = ComPortController.SendDataToSwitcherController((byte)steps, (byte)seconds);
 
@@ -36,7 +40,6 @@ namespace StepMotorControllerUIPart.View
             
         }
 
-
         private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
              var state = ComPortController.TryOpenPort(serialPortsComboBox.SelectedItem.ToString());
@@ -45,19 +48,6 @@ namespace StepMotorControllerUIPart.View
             {
                 ShowMessageBox(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
             }
-        }
-
-
-        private PointPairList GraphPointsGenerator(Dictionary<double, double> lineArray)
-        {
-            var pointList = new PointPairList();
-
-            foreach (var point in lineArray)
-            {
-                pointList.Add(point.Key, point.Value);
-
-            }
-            return pointList;
         }
 
         private void DrawLineGraph(PointPairList list)
@@ -104,23 +94,14 @@ namespace StepMotorControllerUIPart.View
             MessageBox.Show(message, "Important Message");
         }
 
+
+
         private void drawGraph_Click(object sender, EventArgs e)
         {
-            stopwatch.Start();
-            var testData = ComPortController.CatchDataFromADTs(15, 20);
+            ParametersDto parameters = new ParametersDto(_steps, _seconds);
 
+            GlobalController.StartMesures(parameters);
 
-            foreach (var mesure in testData)
-            {
-                Console.WriteLine(mesure.SwitcherPosition);
-                Console.WriteLine(mesure.DataFromOscillatorArray[0]);
-                Console.WriteLine(mesure.DataFromSwitcherArray[0]);
-            }
-            Console.WriteLine("{0} generating data",
-              stopwatch.Elapsed.TotalSeconds);
-            Console.WriteLine(testData.Count);
-            
-         
         }
     }
     

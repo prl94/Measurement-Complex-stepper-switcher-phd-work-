@@ -8,6 +8,8 @@ namespace StepMotorControllerUIPart.Model
 {
     class WritingToFile
     {
+
+        /*
         public void WriteDataToFile(String fileName, List<Dimention> dimentions)
         {
             string length = "Відстань: ";
@@ -22,6 +24,6 @@ namespace StepMotorControllerUIPart.Model
             }
             string[] lines = { length, averageValue, standartDeviation };
             System.IO.File.WriteAllLines(fileName + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss"), lines);
-        }
+        }*/
     }
 }
