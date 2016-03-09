@@ -8,15 +8,15 @@ namespace StepMotorControllerUIPart.DTO
     class MesureDto
     {
         public readonly int SwitcherPosition;
-        public readonly double[] DataFromSwitcherArray;
         public readonly double[] DataFromOscillatorArray;
+        public readonly double[] DataFromSwitcherArray;
+        
 
-        public MesureDto(int switcherPosition, double[] dataFromSwitcherArray, double[] dataFromOscillatorArray)
+        public MesureDto(int switcherPosition, double[] dataFromOscillatorArray, double[] dataFromSwitcherArray)
         {
             SwitcherPosition = switcherPosition;
             DataFromOscillatorArray = dataFromOscillatorArray;
             DataFromSwitcherArray = dataFromSwitcherArray;
         }
-
     }
 }

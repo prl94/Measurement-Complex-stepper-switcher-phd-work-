@@ -25,7 +25,8 @@ namespace StepMotorControllerUIPart.View
         {
             int steps = Int32.Parse(stepsCountTextBox.Text);
             int seconds = Int32.Parse(delayTextBox.Text);
-            var state =  ComPortController.SendDataToSwitcherController((byte)steps, (byte)seconds);
+
+            var state = ComPortController.SendDataToSwitcherController((byte)steps, (byte)seconds);
 
             Console.WriteLine(@"Data sended? " + state + @" Port is open? " + ComPortController.PortIsOpen());
             if (!state)
@@ -106,7 +107,7 @@ namespace StepMotorControllerUIPart.View
         private void drawGraph_Click(object sender, EventArgs e)
         {
             stopwatch.Start();
-            var testData = ComPortController.CatchDataFromADTs(15, 200);
+            var testData = ComPortController.CatchDataFromADTs(15, 20);
 
 
             foreach (var mesure in testData)

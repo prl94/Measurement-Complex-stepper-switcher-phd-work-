@@ -52,6 +52,7 @@
     <Compile Include="DTO\MesureDto.cs" />
     <Compile Include="Helper\Dimention.cs" />
     <Compile Include="Helper\MathHelper.cs" />
+    <Compile Include="Helper\ThreadSafeRandom.cs" />
     <Compile Include="SerialPortController\ComPortController.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>

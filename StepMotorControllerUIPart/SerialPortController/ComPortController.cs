@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Ports;
+using System.Linq;
 using StepMotorControllerUIPart.DTO;
+using StepMotorControllerUIPart.Helper;
 
 namespace StepMotorControllerUIPart.SerialPortController
 {
@@ -67,27 +69,27 @@ namespace StepMotorControllerUIPart.SerialPortController
 
         public static List<MesureDto> CatchDataFromADTs(int stepsCount, int mesurements)
         {
-            Random rnd = new Random();
+
             var mesuresPack = new List<MesureDto>();
-            for (int i = 1; i <= stepsCount; i++)
+            for (int i = 0; i <= stepsCount; i++)
             {
-                mesuresPack.Add(CatchStepDataPack(i, mesurements,rnd));
+                mesuresPack.Add(CatchStepDataPack(i, mesurements));
             }
             return mesuresPack;
         }
 
-        private static MesureDto CatchStepDataPack(int step, int mesurements, Random rnd)
+        private static MesureDto CatchStepDataPack(int step, int mesurements)
         {
-            
 
-            var dataFromSwitcherRandomArray = new double[mesurements];
             var dataFromOscillatorRandomArray = new double[mesurements];
+            var dataFromSwitcherRandomArray = new double[mesurements];
+            
             for (int n = 0; n < mesurements; n++)
             {
-                dataFromSwitcherRandomArray[n] = rnd.NextDouble();
-                dataFromOscillatorRandomArray[n] = rnd.NextDouble();
+                dataFromOscillatorRandomArray[n] = ThreadSafeRandom.NextDouble();
+                dataFromSwitcherRandomArray[n] = ThreadSafeRandom.NextDouble();
             }
-            return new MesureDto(step, dataFromSwitcherRandomArray, dataFromSwitcherRandomArray);
+            return new MesureDto(step, dataFromOscillatorRandomArray, dataFromSwitcherRandomArray);
         }
     }
 }
