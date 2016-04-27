@@ -35,12 +35,17 @@ namespace StepMotorControllerUIPart.SerialPortClasses
             if (_serialPort == null)            
             {
                 _serialPort = new SerialPort(_portName, _baudRate, Parity.None, 8, StopBits.One);
-                
+
                 try
                 {
                     logger.Trace("Oppened Serial Port");
                     _serialPort.Open();
-                   
+
+                }
+                catch (UnauthorizedAccessException e)
+                {
+                    logger.Error(e);
+                    throw e;
                 }
                 catch (IOException e)
                 {

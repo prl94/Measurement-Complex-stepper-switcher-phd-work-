@@ -41,11 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.delayBeforeStepTextBox = new System.Windows.Forms.TextBox();
             this.mesureCountTextBox = new System.Windows.Forms.TextBox();
-            this.eventLog1 = new System.Diagnostics.EventLog();
             this.arduinoComPortLabel = new System.Windows.Forms.Label();
             this.calibrationLabel = new System.Windows.Forms.Label();
             this.CalibrationButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -92,6 +90,10 @@
             this.serialPortsComboBox.TabIndex = 5;
             this.serialPortsComboBox.Text = "COMPORT";
             this.serialPortsComboBox.SelectedIndexChanged += new System.EventHandler(this.serialPortsComboBox_SelectedIndexChanged);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // zedGraph
             // 
@@ -149,10 +151,6 @@
             this.mesureCountTextBox.Size = new System.Drawing.Size(100, 20);
             this.mesureCountTextBox.TabIndex = 11;
             // 
-            // eventLog1
-            // 
-            this.eventLog1.SynchronizingObject = this;
-            // 
             // arduinoComPortLabel
             // 
             this.arduinoComPortLabel.AutoSize = true;
@@ -207,7 +205,6 @@
             this.Controls.Add(this.label1);
             this.Name = "GeneralView";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,7 +224,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox delayBeforeStepTextBox;
         private System.Windows.Forms.TextBox mesureCountTextBox;
-        private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.Label arduinoComPortLabel;
         private System.Windows.Forms.Label calibrationLabel;
         private System.Windows.Forms.Button CalibrationButton;
