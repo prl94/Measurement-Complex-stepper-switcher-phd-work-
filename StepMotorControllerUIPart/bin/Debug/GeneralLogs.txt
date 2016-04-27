@@ -1,0 +1,1 @@
+2016-04-27 16:58:27.1320|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1

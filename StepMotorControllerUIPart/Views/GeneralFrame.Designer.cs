@@ -42,6 +42,9 @@
             this.delayBeforeStepTextBox = new System.Windows.Forms.TextBox();
             this.mesureCountTextBox = new System.Windows.Forms.TextBox();
             this.eventLog1 = new System.Diagnostics.EventLog();
+            this.arduinoComPortLabel = new System.Windows.Forms.Label();
+            this.calibrationLabel = new System.Windows.Forms.Label();
+            this.CalibrationButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +86,7 @@
             // serialPortsComboBox
             // 
             this.serialPortsComboBox.FormattingEnabled = true;
-            this.serialPortsComboBox.Location = new System.Drawing.Point(12, 385);
+            this.serialPortsComboBox.Location = new System.Drawing.Point(19, 489);
             this.serialPortsComboBox.Name = "serialPortsComboBox";
             this.serialPortsComboBox.Size = new System.Drawing.Size(86, 21);
             this.serialPortsComboBox.TabIndex = 5;
@@ -92,7 +95,7 @@
             // 
             // zedGraph
             // 
-            this.zedGraph.Location = new System.Drawing.Point(273, 22);
+            this.zedGraph.Location = new System.Drawing.Point(385, 12);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.ScrollGrace = 0D;
             this.zedGraph.ScrollMaxX = 0D;
@@ -150,12 +153,47 @@
             // 
             this.eventLog1.SynchronizingObject = this;
             // 
+            // arduinoComPortLabel
+            // 
+            this.arduinoComPortLabel.AutoSize = true;
+            this.arduinoComPortLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.arduinoComPortLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.arduinoComPortLabel.Location = new System.Drawing.Point(12, 464);
+            this.arduinoComPortLabel.Name = "arduinoComPortLabel";
+            this.arduinoComPortLabel.Size = new System.Drawing.Size(115, 17);
+            this.arduinoComPortLabel.TabIndex = 12;
+            this.arduinoComPortLabel.Text = "Arduino ComPort";
+            // 
+            // calibrationLabel
+            // 
+            this.calibrationLabel.AutoSize = true;
+            this.calibrationLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.calibrationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.calibrationLabel.Location = new System.Drawing.Point(162, 464);
+            this.calibrationLabel.Name = "calibrationLabel";
+            this.calibrationLabel.Size = new System.Drawing.Size(79, 17);
+            this.calibrationLabel.TabIndex = 13;
+            this.calibrationLabel.Text = "Калібрація";
+            // 
+            // CalibrationButton
+            // 
+            this.CalibrationButton.Location = new System.Drawing.Point(165, 487);
+            this.CalibrationButton.Name = "CalibrationButton";
+            this.CalibrationButton.Size = new System.Drawing.Size(75, 23);
+            this.CalibrationButton.TabIndex = 14;
+            this.CalibrationButton.Text = "Калібрація";
+            this.CalibrationButton.UseVisualStyleBackColor = true;
+            this.CalibrationButton.Click += new System.EventHandler(this.CalibrationButton_Click);
+            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(824, 418);
+            this.ClientSize = new System.Drawing.Size(906, 522);
+            this.Controls.Add(this.CalibrationButton);
+            this.Controls.Add(this.calibrationLabel);
+            this.Controls.Add(this.arduinoComPortLabel);
             this.Controls.Add(this.mesureCountTextBox);
             this.Controls.Add(this.delayBeforeStepTextBox);
             this.Controls.Add(this.label4);
@@ -190,6 +228,9 @@
         private System.Windows.Forms.TextBox delayBeforeStepTextBox;
         private System.Windows.Forms.TextBox mesureCountTextBox;
         private System.Diagnostics.EventLog eventLog1;
+        private System.Windows.Forms.Label arduinoComPortLabel;
+        private System.Windows.Forms.Label calibrationLabel;
+        private System.Windows.Forms.Button CalibrationButton;
     }
 }
 

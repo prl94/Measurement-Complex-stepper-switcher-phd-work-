@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using NLog;
 using StepMotorControllerUIPart.SerialPortClasses;
@@ -85,6 +86,33 @@ namespace StepMotorControllerUIPart.Logic
             logger.Debug("Finished Mesures");
             adc.Disconnect();
             return mesuresList;
+        }
+
+        public static bool Calibration(AdcArduinoParams adcArduinoParams)
+        {
+            ModBus adc = new ModBus();
+            adc.Connect();
+            Arduino.Connect(adcArduinoParams.ArduinoComPort);
+
+            for (int i = 1; i <= 36; i++)
+            {
+                float[] calibrationData = new float[10];
+                for (int j = 0; j < calibrationData.Length; j++)
+                {
+                    calibrationData[j] = adc.Read(adcArduinoParams.Stepper1Adress);
+                }
+                // if average value < 1 stepper in correct position
+                if (calibrationData.Average() >= 1)
+                {
+                    adc.Disconnect();
+                    return true;
+                }
+
+                    Arduino.MakeOneStep();
+                    Thread.Sleep(3000);
+            }
+            adc.Disconnect();
+            return false;
         }
     }
 

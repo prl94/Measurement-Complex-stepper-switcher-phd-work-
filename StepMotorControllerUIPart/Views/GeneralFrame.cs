@@ -15,6 +15,8 @@ namespace StepMotorControllerUIPart.View
 {
     public partial class GeneralView : Form
     {
+        private AdcArduinoParams adcs;
+
         private int _steps;
         private int _seconds;
 
@@ -24,9 +26,11 @@ namespace StepMotorControllerUIPart.View
             InitializeComponent();
             serialPortsComboBox.Items.AddRange(Arduino.GetAvaiblePorts());
             //ConfigReader.GetResistors();
-           // dataGridView1.Rows.Add();
-            
-            new ColumnHeader();
+            // dataGridView1.Rows.Add();
+
+            // init colors in constructor
+            arduinoComPortLabel.BackColor = Color.Red;
+            calibrationLabel.BackColor = Color.Red;
         }
   
         private void startButton_Click(object sender, EventArgs e)
@@ -39,7 +43,7 @@ namespace StepMotorControllerUIPart.View
             Adress a1 = new Adress(1, 1);
             Adress a2 = new Adress(1, 2);
             Adress a3 = new Adress(1, 3);
-            AdcArduinoParams adcs = new AdcArduinoParams("COM3", a1,a2,a3);
+            adcs = new AdcArduinoParams("COM3", a1,a2,a3);
 
             var mesures1 = MesuresLogic.GetMesures_My(paraeters, adcs);
             WritingToFile.WriteMesure_MyToFile(mesures1);
@@ -54,9 +58,10 @@ namespace StepMotorControllerUIPart.View
 
         private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-       Arduino.Connect(serialPortsComboBox.SelectedItem.ToString());
-         //   Console.WriteLine(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
-          //  if (!state)
+             Arduino.Connect(serialPortsComboBox.SelectedItem.ToString());
+            arduinoComPortLabel.BackColor = Color.GreenYellow;
+            //   Console.WriteLine(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
+            //  if (!state)
             {
             //    ShowMessageBox(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
             }
@@ -95,7 +100,15 @@ namespace StepMotorControllerUIPart.View
          //   DrawLineGraph( GlobalController.StartTestMesures(parameters));
            
         }
-        
+        private void CalibrationButton_Click(object sender, EventArgs e)
+        {
+            bool calibrated =  MesuresLogic.Calibration(adcs);
+            if (calibrated)
+            {
+                calibrationLabel.BackColor = Color.GreenYellow;
+                CalibrationButton.Enabled = false;
+            }
+        }
     }
     
 }
