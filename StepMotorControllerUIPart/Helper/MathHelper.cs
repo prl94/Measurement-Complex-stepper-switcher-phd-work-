@@ -2,48 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using StepMotorControllerUIPart.DTO;
+using StepMotorControllerUIPart.UsedTypes;
 
 namespace StepMotorControllerUIPart.Helper
 {
-    class MathHelper
+    public  class MathHelper
     {
-        private readonly List<MesureDto> _mesures;
 
-        public MathHelper(List<MesureDto> mesures)
+      /*  public List<CalculatedData> getCalculatedData()
         {
-            _mesures = mesures;
-
-        }
-
-        public double IEfective()
-        {
-            return 1;
-        }
-
-
-        public List<CalculatedDataDto> getCalculatedData()
-        {
-            List<CalculatedDataDto> myMesures = new List<CalculatedDataDto>();
+            List<CalculatedData> myMesures = new List<CalculatedData>();
             foreach (var mesure in _mesures)
             {
-                myMesures.Add(new CalculatedDataDto(
+                myMesures.Add(new CalculatedData(
                     mesure.SwitcherPosition,
                     GetStandardDeviation(DivadingValues(mesure)),
                     DivadingValues(mesure).Average())
                     );
             }
             return myMesures;
-        }
+        }*/
 
-        private double GetStandardDeviation(double[] list)
+        public static double GetStandardDeviation(float[] list)
         {
             double average = list.Average();
             double sumOfSquaresOfDifferences = list.Select(val => (val - average) * (val - average)).Sum();
             return Math.Sqrt(sumOfSquaresOfDifferences / list.Length);
         }
+        public static double GetAverage(float[] list)
+        {
+            return list.Average();
+        }
 
-        private double[] DivadingValues(MesureDto mesure)
+
+        private double[] DivadingValues(Mesure mesure)
            {
                 double[] divadingValues = new double[mesure.DataFromOscillatorArray.Length];
                 double[] dataFromOscillator = mesure.DataFromOscillatorArray;

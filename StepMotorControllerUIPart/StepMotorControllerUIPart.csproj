@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StepMotorControllerUIPart</RootNamespace>
     <AssemblyName>StepMotorControllerUIPart</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.3.0\lib\net35\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,43 +52,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\GlobalController.cs" />
-    <Compile Include="DTO\CalculatedDataDto.cs" />
-    <Compile Include="DTO\ParametersDto.cs" />
-    <Compile Include="DTO\MesureDto.cs" />
+    <Compile Include="Helper\ConfigReader.cs" />
+    <Compile Include="Logic\MesuresLogic.cs" />
+    <Compile Include="UsedTypes\AdcArduinoParams.cs" />
+    <Compile Include="UsedTypes\Adress.cs" />
+    <Compile Include="UsedTypes\CalculatedData.cs" />
+    <Compile Include="UsedTypes\Constans.cs" />
+    <Compile Include="UsedTypes\Diaphragms.cs" />
+    <Compile Include="UsedTypes\MesureParameters.cs" />
+    <Compile Include="UsedTypes\Mesure.cs" />
     <Compile Include="Helper\MathHelper.cs" />
     <Compile Include="Helper\ThreadSafeRandom.cs" />
-    <Compile Include="SerialPortController\ComPortController.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="SerialPortClasses\ModBus.cs" />
+    <Compile Include="SerialPortClasses\Arduino.cs" />
+    <Compile Include="UsedTypes\Mesure_My.cs" />
+    <Compile Include="UsedTypes\Resistors.cs" />
+    <Compile Include="Views\GeneralFrame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Views\GeneralFrame.Designer.cs">
+      <DependentUpon>GeneralFrame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\WritingToFile.cs" />
+    <Compile Include="Helper\WritingToFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Views\GeneralFrame.resx">
+      <DependentUpon>GeneralFrame.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,14 +14,6 @@ C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\o
 C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
 C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.Form1.resources
 C:\Users\Volodymyr\Desktop\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.Form1.resources
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.Properties.Resources.resources
-D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
 D:\phdWork\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
 D:\phdWork\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
 D:\phdWork\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
@@ -30,3 +22,42 @@ D:\phdWork\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIP
 D:\phdWork\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.Form1.resources
 D:\phdWork\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.Properties.Resources.resources
 D:\phdWork\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.config
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\ADCsettings.config
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\Resistors.config
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe.config
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.dll
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.xml
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.GeneralView.resources
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.Properties.Resources.resources
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\app.config
+D:\phd work\StepMotorControllerUIPart\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.config
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\app.config
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe.config
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.dll
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.xml
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.GeneralView.resources
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+D:\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe.config
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.config
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\app.config
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.dll
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Debug\NLog.xml
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.GeneralView.resources
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache

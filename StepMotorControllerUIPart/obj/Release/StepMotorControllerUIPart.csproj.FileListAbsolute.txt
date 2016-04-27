@@ -1,0 +1,15 @@
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\StepMotorControllerUIPart.exe.config
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\NLog.config
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\app.config
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\StepMotorControllerUIPart.exe
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\StepMotorControllerUIPart.pdb
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\NLog.dll
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\ZedGraph.dll
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\NLog.xml
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Release\StepMotorControllerUIPart.View.GeneralView.resources
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Release\StepMotorControllerUIPart.csproj.GenerateResource.Cache
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Release\StepMotorControllerUIPart.exe
+F:\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Release\StepMotorControllerUIPart.pdb
+D:\phd work\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\bin\Release\StepMotorControllerUIPart.exe.config
+D:\phd work\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Release\StepMotorControllerUIPart.exe
+D:\phd work\25042016\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart 0.1\StepMotorControllerUIPart\StepMotorControllerUIPart\obj\Release\StepMotorControllerUIPart.pdb
