@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\ConfigReader.cs" />
-    <Compile Include="Logic\MesuresLogic.cs" />
+    <Compile Include="Logic\GeneralLogic.cs" />
     <Compile Include="UsedTypes\AdcArduinoParams.cs" />
     <Compile Include="UsedTypes\Adress.cs" />
     <Compile Include="UsedTypes\CalculatedData.cs" />

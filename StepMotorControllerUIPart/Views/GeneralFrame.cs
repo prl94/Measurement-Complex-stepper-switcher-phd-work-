@@ -45,7 +45,7 @@ namespace StepMotorControllerUIPart.View
             Adress a3 = new Adress(1, 3);
             adcs = new AdcArduinoParams("COM3", a1,a2,a3);
 
-            var mesures1 = MesuresLogic.GetMesures_My(paraeters, adcs);
+            var mesures1 = GeneralLogic.GetMesures_My(paraeters, adcs);
             WritingToFile.WriteMesure_MyToFile(mesures1);
 
           //  var resistors =  ConfigReader.GetSettings("Resistors.config");
@@ -58,6 +58,8 @@ namespace StepMotorControllerUIPart.View
 
         private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+           // backgroundWorker1.RunWorkerCompleted += BackgroundWorker1_RunWorkerCompleted;
+
              Arduino.Connect(serialPortsComboBox.SelectedItem.ToString());
             arduinoComPortLabel.BackColor = Color.GreenYellow;
             //   Console.WriteLine(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
@@ -66,6 +68,8 @@ namespace StepMotorControllerUIPart.View
             //    ShowMessageBox(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
             }
         }
+
+      
 
         private void DrawLineGraph(PointPairList list)
         {
@@ -102,12 +106,18 @@ namespace StepMotorControllerUIPart.View
         }
         private void CalibrationButton_Click(object sender, EventArgs e)
         {
-            bool calibrated =  MesuresLogic.Calibration(adcs);
+            GeneralLogic.Step += GeneralLogic_Step;
+            bool calibrated =  GeneralLogic.StartCalibration(adcs);
             if (calibrated)
             {
                 calibrationLabel.BackColor = Color.GreenYellow;
                 CalibrationButton.Enabled = false;
             }
+        }
+
+        private void GeneralLogic_Step(int obj)
+        {
+            MessageBox.Show("step: " + obj);
         }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)

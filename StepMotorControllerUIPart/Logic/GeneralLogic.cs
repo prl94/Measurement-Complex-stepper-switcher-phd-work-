@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using NLog;
@@ -7,7 +8,7 @@ using StepMotorControllerUIPart.UsedTypes;
 
 namespace StepMotorControllerUIPart.Logic
 {
-    public static class MesuresLogic
+    public static class GeneralLogic
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -88,18 +89,22 @@ namespace StepMotorControllerUIPart.Logic
             return mesuresList;
         }
 
-        public static bool Calibration(AdcArduinoParams adcArduinoParams)
+        public static bool StartCalibration(AdcArduinoParams adcArduinoParams)
         {
             ModBus adc = new ModBus();
             adc.Connect();
-            Arduino.Connect(adcArduinoParams.ArduinoComPort);
+           // Arduino.Connect(adcArduinoParams.ArduinoComPort);
 
             for (int i = 1; i <= 36; i++)
             {
+                if (Step != null)
+                {
+                    Step(i);
+                }
                 float[] calibrationData = new float[10];
                 for (int j = 0; j < calibrationData.Length; j++)
                 {
-                    calibrationData[j] = adc.Read(adcArduinoParams.Stepper1Adress);
+                    //calibrationData[j] = adc.Read(adcArduinoParams.Stepper1Adress);
                 }
                 // if average value < 1 stepper in correct position
                 if (calibrationData.Average() >= 1)
@@ -107,14 +112,28 @@ namespace StepMotorControllerUIPart.Logic
                     adc.Disconnect();
                     return true;
                 }
-
+                    
                     Arduino.MakeOneStep();
                     Thread.Sleep(3000);
             }
             adc.Disconnect();
             return false;
         }
+
+        public static event Action<int> Step;
     }
 
+    public class MesuresLogicEvent : EventArgs
+    {
+       
+        public string Message { get; private set; }
+        public MesuresLogicEvent(string message)
+        {
+            Message = message;
+        }
+
+
     }
+
+}
 
