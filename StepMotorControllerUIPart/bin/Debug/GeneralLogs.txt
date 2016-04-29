@@ -101,3 +101,9 @@
 2016-04-28 15:11:55.1552|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Port did not open
 2016-04-28 15:12:00.3035|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Port did not open
 2016-04-28 15:12:11.0041|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Port did not open
+2016-04-29 16:20:24.2819|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
+2016-04-29 16:20:24.3109|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
+2016-04-29 16:20:24.3359|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
+2016-04-29 16:20:26.8240|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Port did not open
+2016-04-29 16:20:30.9843|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Port did not open
+2016-04-29 16:20:35.2635|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Port did not open
