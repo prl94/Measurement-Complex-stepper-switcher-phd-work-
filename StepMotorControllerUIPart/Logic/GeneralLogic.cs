@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using NLog;
@@ -7,20 +8,20 @@ using StepMotorControllerUIPart.UsedTypes;
 
 namespace StepMotorControllerUIPart.Logic
 {
-    public static class MesuresLogic
+    public static class GeneralLogic
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public static List<Mesure> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
+        public static List<MesureOld> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
         {
 
             ModBus adc = new ModBus();
             Arduino.Connect(adcArduinoParams.ArduinoComPort);
             adc.Connect();
-            var mesuresList = new List<Mesure>();
+            var mesuresList = new List<MesureOld>();
 
-            List<Mesure> stepper1List = new List<Mesure>();
-            List<Mesure> stepper2List = new List<Mesure>();
+            List<MesureOld> stepper1List = new List<MesureOld>();
+            List<MesureOld> stepper2List = new List<MesureOld>();
 
             logger.Debug("Start Mesures");
             for (int i = 1; i <= parameters.StepsCount; i++)
@@ -40,8 +41,8 @@ namespace StepMotorControllerUIPart.Logic
                     dataFromStepper2Array[j] = adc.Read(adcArduinoParams.Stepper2Adress);
 
                 }
-                stepper1List.Add(new Mesure(i, dataFromOscillatorArray,dataFromStepper1Array));
-                stepper2List.Add(new Mesure(i+10, dataFromOscillatorArray, dataFromStepper2Array));
+                stepper1List.Add(new MesureOld(i, dataFromOscillatorArray,dataFromStepper1Array));
+                stepper2List.Add(new MesureOld(i+10, dataFromOscillatorArray, dataFromStepper2Array));
 
                 mesuresList.AddRange(stepper1List);
                 mesuresList.AddRange(stepper2List);
@@ -53,13 +54,13 @@ namespace StepMotorControllerUIPart.Logic
             return mesuresList;
         }
 
-        public static List<Mesure_My> GetMesures_My(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
+        public static List<Mesure> GetListOfMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
         {
             ModBus adc = new ModBus();
             adc.Connect();
             Arduino.Connect(adcArduinoParams.ArduinoComPort);
 
-            var mesuresList = new List<Mesure_My>();
+            var mesuresList = new List<Mesure>();
 
             logger.Debug("Start Mesures");
             for (int i = 0; i <= parameters.StepsCount; i++)
@@ -78,7 +79,7 @@ namespace StepMotorControllerUIPart.Logic
                     dataFromChannel1[j] = adc.Read(adcArduinoParams.Stepper1Adress);
                     dataFromChannel2[j] = adc.Read(adcArduinoParams.Stepper2Adress);
                 }
-                mesuresList.Add(new Mesure_My(i,dataFromSecondaryEmmisionMonitor, dataFromChannel1, dataFromChannel2));
+                mesuresList.Add(new Mesure(i,dataFromSecondaryEmmisionMonitor, dataFromChannel1, dataFromChannel2));
 
               Arduino.MakeOneStep();
 
@@ -94,8 +95,11 @@ namespace StepMotorControllerUIPart.Logic
             adc.Connect();
             Arduino.Connect(adcArduinoParams.ArduinoComPort);
 
+            if (CalibrationStart != null) CalibrationStart();
+
             for (int i = 1; i <= 36; i++)
             {
+                if (CalibrationStep != null) CalibrationStep(i);
                 float[] calibrationData = new float[10];
                 for (int j = 0; j < calibrationData.Length; j++)
                 {
@@ -105,6 +109,9 @@ namespace StepMotorControllerUIPart.Logic
                 if (calibrationData.Average() >= 1)
                 {
                     adc.Disconnect();
+
+                    if (CalibrationFinish != null) CalibrationFinish(true);
+
                     return true;
                 }
 
@@ -112,8 +119,15 @@ namespace StepMotorControllerUIPart.Logic
                     Thread.Sleep(3000);
             }
             adc.Disconnect();
+            if (CalibrationFinish != null) CalibrationFinish(false);
             return false;
         }
+
+        public static event Action CalibrationStart;
+        public static event Action<int> CalibrationStep;
+        public static event Action<bool> CalibrationFinish;
+
+
     }
 
     }

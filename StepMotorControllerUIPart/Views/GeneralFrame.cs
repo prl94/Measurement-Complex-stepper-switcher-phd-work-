@@ -45,7 +45,7 @@ namespace StepMotorControllerUIPart.View
             Adress a3 = new Adress(1, 3);
             adcs = new AdcArduinoParams("COM3", a1,a2,a3);
 
-            var mesures1 = MesuresLogic.GetMesures_My(paraeters, adcs);
+            var mesures1 = GeneralLogic.GetListOfMesures(paraeters, adcs);
             WritingToFile.WriteMesure_MyToFile(mesures1);
 
           //  var resistors =  ConfigReader.GetSettings("Resistors.config");
@@ -102,12 +102,29 @@ namespace StepMotorControllerUIPart.View
         }
         private void CalibrationButton_Click(object sender, EventArgs e)
         {
-            bool calibrated =  MesuresLogic.Calibration(adcs);
+            GeneralLogic.CalibrationStart += GeneralLogic_CalibrationStart;
+            GeneralLogic.CalibrationFinish += GeneralLogic_CalibrationFinish;
+
+            bool calibrated =  GeneralLogic.Calibration(adcs);
             if (calibrated)
             {
-                calibrationLabel.BackColor = Color.GreenYellow;
                 CalibrationButton.Enabled = false;
             }
+        }
+
+        private void GeneralLogic_CalibrationFinish(bool obj)
+        {
+            if (obj)
+            {
+                MessageBox.Show("Калібрація закінчилась, кроковий двигун в позиції 1В");
+                calibrationLabel.BackColor = Color.GreenYellow;
+            }
+            MessageBox.Show("Калібрація закінчилась невдало");
+        }
+
+        private void GeneralLogic_CalibrationStart()
+        {
+            throw new NotImplementedException();
         }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)

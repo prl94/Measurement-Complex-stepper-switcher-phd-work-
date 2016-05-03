@@ -6,7 +6,7 @@ using StepMotorControllerUIPart.UsedTypes;
 
 namespace StepMotorControllerUIPart.SerialPortClasses
 {
-   
+
     public class ModBus
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
@@ -157,6 +157,7 @@ namespace StepMotorControllerUIPart.SerialPortClasses
 
             var result = CommunicatorUtils.ParseFloat(revertResultBytes);
             logger.Trace("Read result: result={0}", result);
+
             return result;         
         }
 

@@ -35,7 +35,7 @@ namespace StepMotorControllerUIPart.Helper
         }
 
 
-        private double[] DivadingValues(Mesure mesure)
+        private double[] DivadingValues(MesureOld mesure)
            {
                 double[] divadingValues = new double[mesure.DataFromOscillatorArray.Length];
                 double[] dataFromOscillator = mesure.DataFromOscillatorArray;

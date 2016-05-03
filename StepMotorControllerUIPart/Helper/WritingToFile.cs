@@ -10,7 +10,7 @@ namespace StepMotorControllerUIPart.Helper
     public class WritingToFile
     {
 
-        public static void WriteMesure_MyToFile(List<Mesure_My> mesures)
+        public static void WriteMesure_MyToFile(List<Mesure> mesures)
         {
 
             String fileName = ("Виміри " + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss") + ".txt");
