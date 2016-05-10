@@ -78,3 +78,6 @@
    at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
    at System.IO.Ports.SerialPort.Open()
    at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
+2016-05-05 11:01:47.4670|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
+2016-05-05 11:01:47.5670|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
+2016-05-05 11:01:47.5970|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port

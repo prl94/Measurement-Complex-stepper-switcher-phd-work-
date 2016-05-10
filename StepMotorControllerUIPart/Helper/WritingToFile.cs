@@ -17,7 +17,7 @@ namespace StepMotorControllerUIPart.Helper
             StreamWriter writer = new StreamWriter(fileName);
 
             // Display header
-            string header = String.Format("{0,-4}{1,-20}{2,-20}{3,-20}{4,-20}{5,-20}{6,-20}\n",
+            string header = String.Format("{0,-4}{1,-25}{2,-25}{3,-25}{4,-25}{5,-25}{6,-25}\n",
                 "#", "U_SEM ", "StDev_SEM", "U_Channel1", "StDev_Ch1", "U_Channel2", "StDev_Ch2");
             writer.WriteLine(header);
 
@@ -25,7 +25,7 @@ namespace StepMotorControllerUIPart.Helper
 
             foreach (var mesure in mesures)
             {
-                writer.Write("{0,-4}{1,-20}{2,-20}{3,-20}{4,-20}{5,-20}{6,-20}{7}",
+                writer.Write("{0,-4}{1,-25}{2,-25}{3,-25}{4,-25}{5,-25}{6,-25}{7}",
                     mesure.MesureNumber, MathHelper.GetAverage(mesure.USecondaryEmmisionMonitor), MathHelper.GetStandardDeviation(mesure.USecondaryEmmisionMonitor),
                     MathHelper.GetAverage(mesure.UChannel1), MathHelper.GetStandardDeviation(mesure.UChannel1),
                     MathHelper.GetAverage(mesure.UChannel2), MathHelper.GetStandardDeviation(mesure.UChannel2), Environment.NewLine);

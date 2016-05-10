@@ -22,10 +22,10 @@ namespace StepMotorControllerUIPart.SerialPortClasses
             logger.Trace("ModBus default constructor create object");
         }
     
-        public ModBus(String portName, int baudRate)
+        public ModBus(String portName)
         {
             _portName = portName;
-            _baudRate = baudRate;
+            _baudRate = 9600;
             logger.Trace("ModBus custom constructor create object");
         }
 

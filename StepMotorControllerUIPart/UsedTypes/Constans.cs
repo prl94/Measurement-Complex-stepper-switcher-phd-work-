@@ -18,6 +18,16 @@ namespace StepMotorControllerUIPart.UsedTypes
         public static readonly String R8 = "R8";
         public static readonly String R9 = "R9";
         public static readonly String R10 = "R10";
+        public static readonly String R11 = "R12";
+        public static readonly String R12 = "R12";
+        public static readonly String R13 = "R13";
+        public static readonly String R14 = "R14";
+        public static readonly String R15 = "R15";
+        public static readonly String R16 = "R16";
+        public static readonly String R17 = "R17";
+        public static readonly String R18 = "R18";
+        public static readonly String R19 = "R19";
+        public static readonly String R20 = "R20";
 
 
         public static readonly String SectionModBusAdresses = "ModBusAdresses";

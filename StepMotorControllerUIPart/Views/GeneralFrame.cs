@@ -15,7 +15,15 @@ namespace StepMotorControllerUIPart.View
 {
     public partial class GeneralView : Form
     {
-        private AdcArduinoParams adcs;
+
+        private Diaphragms _diaphragms;
+        private Resistors _resistors;
+        private Adress _secondaryEmisionMonitor, _channel1, _channel2;
+        private String _arduinoPort;
+
+
+
+        private AdcArduinoParams _adcs;
 
         private int _steps;
         private int _seconds;
@@ -36,17 +44,15 @@ namespace StepMotorControllerUIPart.View
         private void startButton_Click(object sender, EventArgs e)
         {
             int steps = Int32.Parse(stepsCountTextBox.Text);
-            int mesures = Int32.Parse(mesureCountTextBox.Text);
+            int mesuresCount = Int32.Parse(mesureCountTextBox.Text);
             int delay = Int32.Parse(delayBeforeStepTextBox.Text);
-            var paraeters = new MesureParameters(steps, mesures, delay);
+            var parameters = new MesureParameters(steps, mesuresCount, delay);
             
-            Adress a1 = new Adress(1, 1);
-            Adress a2 = new Adress(1, 2);
-            Adress a3 = new Adress(1, 3);
-            adcs = new AdcArduinoParams("COM3", a1,a2,a3);
 
-            var mesures1 = GeneralLogic.GetListOfMesures(paraeters, adcs);
-            WritingToFile.WriteMesure_MyToFile(mesures1);
+            _adcs = new AdcArduinoParams("COM3", _secondaryEmisionMonitor,_channel1,_channel2);
+
+            var mesures = GeneralLogic.GetListOfMesures(parameters, _adcs);
+            WritingToFile.WriteMesure_MyToFile(mesures);
 
           //  var resistors =  ConfigReader.GetSettings("Resistors.config");
            
@@ -102,10 +108,9 @@ namespace StepMotorControllerUIPart.View
         }
         private void CalibrationButton_Click(object sender, EventArgs e)
         {
-            GeneralLogic.CalibrationStart += GeneralLogic_CalibrationStart;
             GeneralLogic.CalibrationFinish += GeneralLogic_CalibrationFinish;
 
-            bool calibrated =  GeneralLogic.Calibration(adcs);
+            bool calibrated =  GeneralLogic.Calibration(_adcs);
             if (calibrated)
             {
                 CalibrationButton.Enabled = false;
@@ -122,14 +127,22 @@ namespace StepMotorControllerUIPart.View
             MessageBox.Show("Калібрація закінчилась невдало");
         }
 
-        private void GeneralLogic_CalibrationStart()
-        {
-            throw new NotImplementedException();
-        }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
 
+        }
+
+        private void GeneralView_Load(object sender, EventArgs e)
+        {
+
+            // inserting data from config file
+            _diaphragms = new Diaphragms(ConfigReader.GetDiaphragmas());
+            _resistors = new Resistors(ConfigReader.GetResistors());
+            _secondaryEmisionMonitor = ConfigReader.GetAdress(Constans.SecondaryEmisionMonitorAdcNumber,
+                Constans.SecondaryEmisionMonitorChannelNumber);
+            _channel1 = ConfigReader.GetAdress(Constans.Channel1AdcNumber, Constans.Channel1ChannelNumber);
+            _channel2 = ConfigReader.GetAdress(Constans.Channel2AdcNumber, Constans.Channel2ChannelNumber);
         }
     }
     

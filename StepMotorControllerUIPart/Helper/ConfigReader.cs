@@ -81,6 +81,14 @@ namespace StepMotorControllerUIPart.Helper
             return null;
         }*/
 
+        public static Adress GetAdress(string adc, string channel)
+        {
+            var adresses = GetSettings(Constans.SectionModBusAdresses);
+            var adress = new Adress(Convert.ToByte(adresses[adc]), Convert.ToByte(adresses[channel]));
+            return adress;
+        }
+
+
         public static Dictionary<string, float> GetDiaphragmas()
         {
             var diaphragms = GetSettings(Constans.SectionDiaphragms);
