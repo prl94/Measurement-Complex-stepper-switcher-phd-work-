@@ -60,7 +60,7 @@
     <Compile Include="UsedTypes\Constans.cs" />
     <Compile Include="UsedTypes\Diaphragms.cs" />
     <Compile Include="UsedTypes\MesureParameters.cs" />
-    <Compile Include="UsedTypes\MesureOld.cs" />
+    <Compile Include="UsedTypes\MesureLatest.cs" />
     <Compile Include="Helper\MathHelper.cs" />
     <Compile Include="Helper\ThreadSafeRandom.cs" />
     <Compile Include="SerialPortClasses\ModBus.cs" />

@@ -45,7 +45,7 @@ namespace StepMotorControllerUIPart.Helper
             return (_ret);
         }
         
-        public static NameValueCollection GetSettings(String section)
+        private static NameValueCollection GetSettings(String section)
         {
 
             NameValueCollection  settings = ConfigurationManager.GetSection(section) as

@@ -4,13 +4,13 @@
     {
         public readonly int StepsCount;
         public readonly int MesuresCount;
-        public readonly int DelayBeforeStep;
+        public readonly int DelayAfterStep;
 
         public MesureParameters(int stepsCount, int mesuresCount, int delayBeforeStep)
         {
             StepsCount = stepsCount;
             MesuresCount = mesuresCount;
-            DelayBeforeStep = delayBeforeStep * 1000;
+            DelayAfterStep = delayBeforeStep * 1000;
         }
 
     }

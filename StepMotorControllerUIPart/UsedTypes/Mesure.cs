@@ -12,6 +12,8 @@ namespace StepMotorControllerUIPart.UsedTypes
         public float[] UChannel1;
         public float[] UChannel2;
 
+        
+
         public Mesure(int mesureNumber, float[] uSecondaryEmmisionMonitor, float[] uChannel1, float[] uChannel2)
         {
             MesureNumber = mesureNumber;

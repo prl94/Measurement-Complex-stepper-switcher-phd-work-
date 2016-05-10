@@ -24,7 +24,7 @@ namespace StepMotorControllerUIPart.Logic
             for (int i = 0; i <= parameters.StepsCount; i++)
             {
                 logger.Trace("Mesure for {0} step", i);
-                Thread.Sleep(parameters.DelayBeforeStep);
+                Thread.Sleep(parameters.DelayAfterStep);
 
                 var length = parameters.MesuresCount;
                 float[] dataFromSecondaryEmmisionMonitor = new float[length],
@@ -90,27 +90,29 @@ namespace StepMotorControllerUIPart.Logic
 
 
 #region old getmesures logic
-        public static List<MesureOld> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
+        public static List<MesureLatest> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
         {
 
             ModBus adc = new ModBus();
             Arduino.Connect(adcArduinoParams.ArduinoComPort);
             adc.Connect();
-            var mesuresList = new List<MesureOld>();
+            var mesuresList = new List<MesureLatest>();
 
-            List<MesureOld> stepper1List = new List<MesureOld>();
-            List<MesureOld> stepper2List = new List<MesureOld>();
+            List<MesureLatest> stepper1List = new List<MesureLatest>();
+            List<MesureLatest> stepper2List = new List<MesureLatest>();
 
             logger.Debug("Start Mesures");
             for (int i = 1; i <= parameters.StepsCount; i++)
             {
                 logger.Trace("Mesure for {0} step", i);
-                Thread.Sleep(parameters.DelayBeforeStep);
+                
+                Arduino.MakeOneStep();
+                Thread.Sleep(parameters.DelayAfterStep);
 
                 var length = parameters.MesuresCount;
-                double[] dataFromOscillatorArray = new double[length],
-                    dataFromStepper1Array = new double[length],
-                    dataFromStepper2Array = new double[length];
+                float[] dataFromOscillatorArray = new float[length],
+                    dataFromStepper1Array = new float[length],
+                    dataFromStepper2Array = new float[length];
 
                 for (int j = 0; j < parameters.MesuresCount; j++)
                 {
@@ -119,14 +121,11 @@ namespace StepMotorControllerUIPart.Logic
                     dataFromStepper2Array[j] = adc.Read(adcArduinoParams.Stepper2Adress);
 
                 }
-                stepper1List.Add(new MesureOld(i, dataFromOscillatorArray, dataFromStepper1Array));
-                stepper2List.Add(new MesureOld(i + 10, dataFromOscillatorArray, dataFromStepper2Array));
+                stepper1List.Add(new MesureLatest(i, dataFromOscillatorArray, dataFromStepper1Array,0,0));
+                stepper2List.Add(new MesureLatest(i + 10, dataFromOscillatorArray, dataFromStepper2Array,0,0));
 
                 mesuresList.AddRange(stepper1List);
                 mesuresList.AddRange(stepper2List);
-
-                Arduino.MakeOneStep();
-
             }
             logger.Debug("Finished Mesures");
             return mesuresList;
