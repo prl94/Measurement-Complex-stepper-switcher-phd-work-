@@ -46,10 +46,11 @@ namespace StepMotorControllerUIPart.View
             int steps = Int32.Parse(stepsCountTextBox.Text);
             int mesuresCount = Int32.Parse(mesureCountTextBox.Text);
             int delay = Int32.Parse(delayBeforeStepTextBox.Text);
-            var parameters = new MesureParameters(steps, mesuresCount, delay);
+            
+              var parameters = new MesureParameters(steps, mesuresCount, delay);
             
 
-            _adcs = new AdcArduinoParams("COM3", _secondaryEmisionMonitor,_channel1,_channel2);
+            _adcs = new AdcArduinoParams("COM1", "COM3", _secondaryEmisionMonitor,_channel1,_channel2);
 
             var mesures = GeneralLogic.GetListOfMesures(parameters, _adcs);
             WritingToFile.WriteMesure_MyToFile(mesures);

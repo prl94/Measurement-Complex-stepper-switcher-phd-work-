@@ -14,7 +14,7 @@ namespace StepMotorControllerUIPart.Logic
 
         public static List<Mesure> GetListOfMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
         {
-            ModBus adc = new ModBus();
+            ModBus adc = new ModBus(adcArduinoParams.ModBusComPort);
             adc.Connect();
             Arduino.Connect(adcArduinoParams.ArduinoComPort);
 
