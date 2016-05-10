@@ -54,11 +54,13 @@
   <ItemGroup>
     <Compile Include="Helper\ConfigReader.cs" />
     <Compile Include="Logic\GeneralLogic.cs" />
+    <Compile Include="Logic\GraphLogic.cs" />
     <Compile Include="UsedTypes\AdcArduinoParams.cs" />
     <Compile Include="UsedTypes\Adress.cs" />
     <Compile Include="UsedTypes\CalculatedData.cs" />
     <Compile Include="UsedTypes\Constans.cs" />
     <Compile Include="UsedTypes\Diaphragms.cs" />
+    <Compile Include="UsedTypes\GraphData.cs" />
     <Compile Include="UsedTypes\MesureParameters.cs" />
     <Compile Include="UsedTypes\MesureLatest.cs" />
     <Compile Include="Helper\MathHelper.cs" />
