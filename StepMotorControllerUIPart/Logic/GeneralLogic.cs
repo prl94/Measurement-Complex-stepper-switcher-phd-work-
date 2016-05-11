@@ -11,44 +11,7 @@ namespace StepMotorControllerUIPart.Logic
     public static class GeneralLogic
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-
-        public static List<Mesure> GetListOfMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
-        {
-            ModBus adc = new ModBus(adcArduinoParams.ModBusComPort);
-            adc.Connect();
-            Arduino.Connect(adcArduinoParams.ArduinoComPort);
-
-            var mesuresList = new List<Mesure>();
-
-            logger.Debug("Start Mesures");
-            for (int i = 0; i <= parameters.StepsCount; i++)
-            {
-                logger.Trace("Mesure for {0} step", i);
-                Thread.Sleep(parameters.DelayAfterStep);
-
-                var length = parameters.MesuresCount;
-                float[] dataFromSecondaryEmmisionMonitor = new float[length],
-                    dataFromChannel1 = new float[length],
-                    dataFromChannel2 = new float[length];
-
-                for (int j = 0; j < parameters.MesuresCount; j++)
-                {
-                    dataFromSecondaryEmmisionMonitor[j] = adc.Read(adcArduinoParams.OscillatorAdress);
-                    dataFromChannel1[j] = adc.Read(adcArduinoParams.Stepper1Adress);
-                    dataFromChannel2[j] = adc.Read(adcArduinoParams.Stepper2Adress);
-                }
-                mesuresList.Add(new Mesure(i,dataFromSecondaryEmmisionMonitor, dataFromChannel1, dataFromChannel2));
-
-              Arduino.MakeOneStep();
-
-            }
-            logger.Debug("Finished Mesures");
-            adc.Disconnect();
-            if (MesuresFinished != null) MesuresFinished();
-            return mesuresList;
-        }
-        public static event Action MesuresFinished;
-
+        
         public static bool Calibration(AdcArduinoParams adcArduinoParams)
         {
             ModBus adc = new ModBus();
@@ -88,18 +51,16 @@ namespace StepMotorControllerUIPart.Logic
         public static event Action<bool> CalibrationFinish;
 
 
-
-#region old getmesures logic
-        public static List<MesureLatest> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams, Resistors resistors, Diaphragms diaphragms)
+        public static List<Mesure> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams, Resistors resistors, Diaphragms diaphragms)
         {
 
             ModBus adc = new ModBus();
             Arduino.Connect(adcArduinoParams.ArduinoComPort);
             adc.Connect();
-            var mesuresList = new List<MesureLatest>();
+            var mesuresList = new List<Mesure>();
 
-            List<MesureLatest> stepper1List = new List<MesureLatest>();
-            List<MesureLatest> stepper2List = new List<MesureLatest>();
+            List<Mesure> stepper1List = new List<Mesure>();
+            List<Mesure> stepper2List = new List<Mesure>();
 
             logger.Debug("Start Mesures");
             for (int i = 1; i <= parameters.StepsCount; i++)
@@ -121,8 +82,8 @@ namespace StepMotorControllerUIPart.Logic
                     dataFromStepper2Array[j] = adc.Read(adcArduinoParams.Stepper2Adress);
 
                 }
-                stepper1List.Add(new MesureLatest(i, dataFromOscillatorArray, dataFromStepper1Array,resistors.ResistorsArray[i-1],diaphragms.DiaphragmsArray[i-1]));
-                stepper2List.Add(new MesureLatest(i + 10, dataFromOscillatorArray, dataFromStepper2Array,resistors.ResistorsArray[(i-1)+10],diaphragms.DiaphragmsArray[(i-1)+10]));
+                stepper1List.Add(new Mesure(i, dataFromOscillatorArray, dataFromStepper1Array,resistors.ResistorsArray[i-1],diaphragms.DiaphragmsArray[i-1]));
+                stepper2List.Add(new Mesure(i + 10, dataFromOscillatorArray, dataFromStepper2Array,resistors.ResistorsArray[(i-1)+10],diaphragms.DiaphragmsArray[(i-1)+10]));
 
                 mesuresList.AddRange(stepper1List);
                 mesuresList.AddRange(stepper2List);
@@ -130,9 +91,7 @@ namespace StepMotorControllerUIPart.Logic
             logger.Debug("Finished Mesures");
             return mesuresList;
         }
-#endregion
-
     }
 
-    }
+}
 

@@ -1,26 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
+using StepMotorControllerUIPart.Helper;
 
 namespace StepMotorControllerUIPart.UsedTypes
 {
     public class Mesure
     {
-        public int MesureNumber;
-        public float[] USecondaryEmmisionMonitor;
-        public float[] UChannel1;
-        public float[] UChannel2;
 
-        
+        public readonly int MesureNumber;
+        public readonly float[] USecondaryEmitionMonitor;
+        public readonly float[] UChannel;
+        public float Resistor;
+        public float Diaphragm;
 
-        public Mesure(int mesureNumber, float[] uSecondaryEmmisionMonitor, float[] uChannel1, float[] uChannel2)
+        public double Inorm {
+            get { return (USecondaryEmitionMonitorAverage / Resistor) / UChannelAverage; }
+        }
+    
+        //average
+        public double USecondaryEmitionMonitorAverage {
+            get { return USecondaryEmitionMonitor.Average(); }
+        }
+        public double UChannelAverage
+        {
+            get { return UChannel.Average(); }
+        }
+
+        //StandardDeviation
+        public double USecondaryEmitionMonitorStandardDeviation
+        {
+            get { return MathHelper.GetStandardDeviation(USecondaryEmitionMonitor); }
+        }
+
+        public Mesure(int mesureNumber, float[] uSecondaryEmitionMonitor, float[] uChannel, float resistor, float diaphragm)
         {
             MesureNumber = mesureNumber;
-            USecondaryEmmisionMonitor = uSecondaryEmmisionMonitor;
-            UChannel1 = uChannel1;
-            UChannel2 = uChannel2;
+            USecondaryEmitionMonitor = uSecondaryEmitionMonitor;
+            UChannel = uChannel;
+            Resistor = resistor;
+            Diaphragm = diaphragm;
         }
+        
 
     }
 }

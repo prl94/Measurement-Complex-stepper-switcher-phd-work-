@@ -62,12 +62,11 @@
     <Compile Include="UsedTypes\Diaphragms.cs" />
     <Compile Include="UsedTypes\GraphData.cs" />
     <Compile Include="UsedTypes\MesureParameters.cs" />
-    <Compile Include="UsedTypes\MesureLatest.cs" />
+    <Compile Include="UsedTypes\Mesure.cs" />
     <Compile Include="Helper\MathHelper.cs" />
     <Compile Include="Helper\ThreadSafeRandom.cs" />
     <Compile Include="SerialPortClasses\ModBus.cs" />
     <Compile Include="SerialPortClasses\Arduino.cs" />
-    <Compile Include="UsedTypes\Mesure.cs" />
     <Compile Include="UsedTypes\Resistors.cs" />
     <Compile Include="Views\GeneralFrame.cs">
       <SubType>Form</SubType>

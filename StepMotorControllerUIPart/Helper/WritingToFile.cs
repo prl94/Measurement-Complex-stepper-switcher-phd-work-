@@ -25,11 +25,11 @@ namespace StepMotorControllerUIPart.Helper
 
             foreach (var mesure in mesures)
             {
-                writer.Write("{0,-4}{1,-25}{2,-25}{3,-25}{4,-25}{5,-25}{6,-25}{7}",
+               /* writer.Write("{0,-4}{1,-25}{2,-25}{3,-25}{4,-25}{5,-25}{6,-25}{7}",
                     mesure.MesureNumber, MathHelper.GetAverage(mesure.USecondaryEmmisionMonitor), MathHelper.GetStandardDeviation(mesure.USecondaryEmmisionMonitor),
                     MathHelper.GetAverage(mesure.UChannel1), MathHelper.GetStandardDeviation(mesure.UChannel1),
                     MathHelper.GetAverage(mesure.UChannel2), MathHelper.GetStandardDeviation(mesure.UChannel2), Environment.NewLine);
-                
+                */
             }
 
             writer.WriteLine(sb.ToString());
@@ -40,24 +40,7 @@ namespace StepMotorControllerUIPart.Helper
 
 
 
-        public static void WriteDataToFile(String fileName, List<CalculatedData> dimentions, double iEfective)
-        {
-            string length = "Крок: ";
-            string averageValue = "Середнє значення: ";
-            string standartDeviation = "Дисперсія: ";
-            string effective = "Середнє ефективне: ";
-
-            foreach (var dim in dimentions)
-            {
-                length += dim.SwitcherPosition.ToString(CultureInfo.InvariantCulture) + ", ";
-                averageValue += dim.AverageValue.ToString(CultureInfo.InvariantCulture) + ", ";
-                standartDeviation += dim.Dispersion.ToString(CultureInfo.InvariantCulture) + ", ";
-            }
-            effective += iEfective;
-            string[] lines = {length, averageValue, standartDeviation, effective};
-            System.IO.File.WriteAllLines(fileName + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss"), lines);
-
-        }
+     
         public static void Writer()
         {
 

@@ -52,8 +52,8 @@ namespace StepMotorControllerUIPart.View
 
             _adcs = new AdcArduinoParams("COM1", "COM3", _secondaryEmisionMonitor,_channel1,_channel2);
 
-            var mesures = GeneralLogic.GetListOfMesures(parameters, _adcs);
-            WritingToFile.WriteMesure_MyToFile(mesures);
+          //  var mesures = GeneralLogic.GetListOfMesures(parameters, _adcs);
+         //   WritingToFile.WriteMesure_MyToFile(mesures);
 
           //  var resistors =  ConfigReader.GetSettings("Resistors.config");
            

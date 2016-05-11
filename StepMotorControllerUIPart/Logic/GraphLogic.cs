@@ -9,50 +9,50 @@ namespace StepMotorControllerUIPart.Logic
 {
     static class GraphLogic
     {
-        public static PointPairList GetDataForGraph(List<MesureLatest> mesuresList)
+        public static PointPairList GetDataForGraph(List<Mesure> mesuresList)
         {
             int count = mesuresList.Count;
-            double[] InormArray = new double[count];
-            float[] DiaphragmasArray = new float[count];
+            double[] inormArray = new double[count];
+            double[] diaphragmasArray = new double[count];
 
             for (int i = 0; i < count; i++)
             {
-                InormArray[0] = mesuresList[0].Inorm;
-                DiaphragmasArray[0] = mesuresList[0].Diaphragm;
+                inormArray[0] = mesuresList[0].Inorm;
+                diaphragmasArray[0] = mesuresList[0].Diaphragm;
             }
 
-            double[] InormArrayComplete = prepareCurrentArray(InormArray);
-            float[] DiaphragmasArrayComplete = prepareDiaphragmArray(DiaphragmasArray);
+            double[] inormArrayComplete = PrepareCurrentArray(inormArray);
+            double[] diaphragmasArrayComplete = PrepareDiaphragmArray(diaphragmasArray);
 
 
             var pointPairList = new PointPairList();
             for (int i = 0; i < count; i++)
             {
-                pointPairList.Add(InormArrayComplete[i] / InormArrayComplete[0], DiaphragmasArrayComplete[0]);
+                pointPairList.Add(inormArrayComplete[i] / inormArrayComplete[0], diaphragmasArrayComplete[0]);
             }
 
             return pointPairList;
         }
-        private static double[] prepareCurrentArray(double[] arr)
+        private static double[] PrepareCurrentArray(double[] arr)
         {
-            double[] InormArrayComplete = new double[arr.Length];
+            double[] inormArrayComplete = new double[arr.Length];
 
-            InormArrayComplete[0] = arr.Sum();
+            inormArrayComplete[0] = arr.Sum();
             for (int i = 1; i < arr.Count(); i++)
             {
-                InormArrayComplete[i] = arr.Skip(i).Sum();
+                inormArrayComplete[i] = arr.Skip(i).Sum();
             }
-            return InormArrayComplete;
+            return inormArrayComplete;
         }
-        private static float[] prepareDiaphragmArray(float[] arr)
+        private static double[] PrepareDiaphragmArray(double[] arr)
         {
-            float[] DiaphragmasArrayComplete = new float[arr.Length];
+            double[] diaphragmasArrayComplete = new double[arr.Length];
 
             for (int i = 1; i < arr.Count(); i++)
             {
-                DiaphragmasArrayComplete[i] = arr.Take(i).Sum();
+                diaphragmasArrayComplete[i] = arr.Take(i).Sum();
             }
-            return DiaphragmasArrayComplete;
+            return diaphragmasArrayComplete;
         }
     }
 }
