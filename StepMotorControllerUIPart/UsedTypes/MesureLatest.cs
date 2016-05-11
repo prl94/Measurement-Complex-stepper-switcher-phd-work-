@@ -16,8 +16,6 @@ namespace StepMotorControllerUIPart.UsedTypes
             get { return (USecondaryEmitionMonitorAverage / Resistor) / UChannelAverage; }
         }
     
-        
-
         //average
         public double USecondaryEmitionMonitorAverage {
             get { return USecondaryEmitionMonitor.Average(); }

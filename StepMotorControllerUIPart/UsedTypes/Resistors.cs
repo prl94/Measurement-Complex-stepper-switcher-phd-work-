@@ -8,7 +8,7 @@ namespace StepMotorControllerUIPart.UsedTypes
 
     //todo add resistors array instead of current realisation
 
-    class Resistors
+    public class Resistors
     {
        public float[] ResistorsArray;
 

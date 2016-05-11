@@ -90,7 +90,7 @@ namespace StepMotorControllerUIPart.Logic
 
 
 #region old getmesures logic
-        public static List<MesureLatest> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams)
+        public static List<MesureLatest> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams, Resistors resistors, Diaphragms diaphragms)
         {
 
             ModBus adc = new ModBus();
@@ -121,8 +121,8 @@ namespace StepMotorControllerUIPart.Logic
                     dataFromStepper2Array[j] = adc.Read(adcArduinoParams.Stepper2Adress);
 
                 }
-                stepper1List.Add(new MesureLatest(i, dataFromOscillatorArray, dataFromStepper1Array,0,0));
-                stepper2List.Add(new MesureLatest(i + 10, dataFromOscillatorArray, dataFromStepper2Array,0,0));
+                stepper1List.Add(new MesureLatest(i, dataFromOscillatorArray, dataFromStepper1Array,resistors.ResistorsArray[i-1],diaphragms.DiaphragmsArray[i-1]));
+                stepper2List.Add(new MesureLatest(i + 10, dataFromOscillatorArray, dataFromStepper2Array,resistors.ResistorsArray[(i-1)+10],diaphragms.DiaphragmsArray[(i-1)+10]));
 
                 mesuresList.AddRange(stepper1List);
                 mesuresList.AddRange(stepper2List);
