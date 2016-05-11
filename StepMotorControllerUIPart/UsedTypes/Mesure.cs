@@ -30,6 +30,10 @@ namespace StepMotorControllerUIPart.UsedTypes
         {
             get { return MathHelper.GetStandardDeviation(USecondaryEmitionMonitor); }
         }
+        public double UChannelStandardDeviation
+        {
+            get { return MathHelper.GetStandardDeviation(UChannel); }
+        }
 
         public Mesure(int mesureNumber, float[] uSecondaryEmitionMonitor, float[] uChannel, float resistor, float diaphragm)
         {

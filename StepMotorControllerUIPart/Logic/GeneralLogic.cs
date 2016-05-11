@@ -96,10 +96,10 @@ namespace StepMotorControllerUIPart.Logic
                 }
                 stepper1List.Add(new Mesure(i, dataFromOscillatorArray, dataFromStepper1Array,resistors.ResistorsArray[i-1],diaphragms.DiaphragmsArray[i-1]));
                 stepper2List.Add(new Mesure(i + 10, dataFromOscillatorArray, dataFromStepper2Array,resistors.ResistorsArray[(i-1)+10],diaphragms.DiaphragmsArray[(i-1)+10]));
-
-                mesuresList.AddRange(stepper1List);
-                mesuresList.AddRange(stepper2List);
+    
             }
+            mesuresList.AddRange(stepper1List);
+            mesuresList.AddRange(stepper2List);
 
             adc.Disconnect();
             arduino.Disconnect();

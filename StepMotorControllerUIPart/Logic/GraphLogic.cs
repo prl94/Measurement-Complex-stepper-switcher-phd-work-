@@ -17,8 +17,8 @@ namespace StepMotorControllerUIPart.Logic
 
             for (int i = 0; i < count; i++)
             {
-                inormArray[0] = mesuresList[0].Inorm;
-                diaphragmasArray[0] = mesuresList[0].Diaphragm;
+                inormArray[i] = mesuresList[i].Inorm;
+                diaphragmasArray[i] = mesuresList[i].Diaphragm;
             }
 
             double[] inormArrayComplete = PrepareCurrentArray(inormArray);
@@ -28,7 +28,7 @@ namespace StepMotorControllerUIPart.Logic
             var pointPairList = new PointPairList();
             for (int i = 0; i < count; i++)
             {
-                pointPairList.Add(inormArrayComplete[i] / inormArrayComplete[0], diaphragmasArrayComplete[0]);
+                pointPairList.Add(diaphragmasArrayComplete[i], inormArrayComplete[i] / inormArrayComplete[0]);
             }
 
             return pointPairList;

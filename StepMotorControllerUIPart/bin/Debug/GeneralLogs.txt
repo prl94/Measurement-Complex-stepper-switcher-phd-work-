@@ -1,92 +1,36 @@
-2016-04-27 16:58:27.1320|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:52:43.0730|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:52:44.1951|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 19:52:44.1951|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 19:52:44.1951|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 19:53:20.1832|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:53:21.0872|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 19:53:21.0872|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 19:53:21.0872|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 19:54:00.0874|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:54:00.8225|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 19:54:00.8225|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 19:54:00.8225|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 19:54:53.9035|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:54:54.4405|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 19:54:54.4405|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 19:54:54.4405|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 19:55:46.3365|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:55:47.3126|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 19:55:47.3126|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 19:55:47.3126|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 19:55:47.3766|ERROR|StepMotorControllerUIPart.SerialPortClasses.ModBus|System.UnauthorizedAccessException: Access to the port 'COM1' is denied.
-   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   at System.IO.Ports.SerialPort.Open()
-   at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
-2016-04-27 19:56:30.3040|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:56:31.1271|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 19:56:31.1271|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 19:56:31.1271|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 19:56:31.1271|ERROR|StepMotorControllerUIPart.SerialPortClasses.ModBus|System.UnauthorizedAccessException: Access to the port 'COM1' is denied.
-   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   at System.IO.Ports.SerialPort.Open()
-   at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
-2016-04-27 19:56:57.9196|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 19:56:58.8397|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 19:56:58.8397|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 19:56:58.8397|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 19:56:58.8397|ERROR|StepMotorControllerUIPart.SerialPortClasses.ModBus|System.UnauthorizedAccessException: Access to the port 'COM1' is denied.
-   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   at System.IO.Ports.SerialPort.Open()
-   at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
-2016-04-27 20:01:34.6414|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 20:01:35.4855|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 20:01:35.4855|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 20:01:35.4855|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 20:01:35.5495|ERROR|StepMotorControllerUIPart.SerialPortClasses.ModBus|System.UnauthorizedAccessException: Access to the port 'COM1' is denied.
-   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   at System.IO.Ports.SerialPort.Open()
-   at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
-2016-04-27 20:02:01.4800|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 20:02:02.1930|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 20:02:02.1930|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 20:02:02.1930|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 20:02:02.2930|ERROR|StepMotorControllerUIPart.SerialPortClasses.ModBus|System.UnauthorizedAccessException: Access to the port 'COM1' is denied.
-   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   at System.IO.Ports.SerialPort.Open()
-   at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
-2016-04-27 20:02:43.5924|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 20:02:44.0794|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 20:02:44.0794|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 20:02:44.0794|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 20:02:44.0794|ERROR|StepMotorControllerUIPart.SerialPortClasses.ModBus|System.UnauthorizedAccessException: Access to the port 'COM1' is denied.
-   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   at System.IO.Ports.SerialPort.Open()
-   at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
-2016-04-27 20:03:51.5603|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM1
-2016-04-27 20:03:52.5773|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-04-27 20:03:52.5773|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-04-27 20:03:52.5773|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-04-27 20:03:52.6643|ERROR|StepMotorControllerUIPart.SerialPortClasses.ModBus|System.UnauthorizedAccessException: Access to the port 'COM1' is denied.
-   at System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   at System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   at System.IO.Ports.SerialPort.Open()
-   at StepMotorControllerUIPart.SerialPortClasses.ModBus.Connect() in D:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\ModBus.cs:line 42
-2016-05-05 11:01:47.4670|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
-2016-05-05 11:01:47.5670|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-05-05 11:01:47.5970|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-05-12 00:52:10.3792|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus custom constructor create object
-2016-05-12 00:52:10.4372|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
-2016-05-12 00:52:10.4372|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
-2016-05-12 00:52:10.6092|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM3
-2016-05-12 00:52:10.8422|ERROR|StepMotorControllerUIPart.SerialPortClasses.Arduino|System.IO.IOException: Порт 'COM3' не существует.
-   в System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
-   в System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
-   в System.IO.Ports.SerialPort.Open()
-   в StepMotorControllerUIPart.SerialPortClasses.Arduino.Connect() в d:\phd work\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\Arduino.cs:строка 34
+2016-05-12 01:42:03.8404|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-12 01:42:03.8964|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-12 01:42:05.6505|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-12 01:42:07.4006|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-12 01:42:09.1507|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-12 01:42:10.9038|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-12 01:42:12.6539|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-12 01:42:14.4040|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-12 01:42:16.1541|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-12 01:42:17.9042|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-12 01:42:19.6543|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-12 01:42:21.4044|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-12 01:43:48.1803|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-12 01:43:48.2134|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-12 01:43:49.9705|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-12 01:43:51.7216|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-12 01:43:53.4747|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-12 01:43:55.2248|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-12 01:43:56.9789|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-12 01:43:58.7290|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-12 01:44:00.4821|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-12 01:44:02.2352|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-12 01:44:03.9853|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-12 01:44:05.7354|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-12 01:44:42.9735|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-12 01:44:43.0075|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-12 01:44:44.7616|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-12 01:44:46.5127|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-12 01:44:48.2628|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-12 01:44:50.0139|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-12 01:44:51.7700|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-12 01:44:53.5201|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-12 01:44:55.2702|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-12 01:44:57.0203|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-12 01:44:58.7704|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-12 01:45:00.5205|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures

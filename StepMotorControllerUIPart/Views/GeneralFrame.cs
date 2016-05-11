@@ -35,6 +35,12 @@ namespace StepMotorControllerUIPart.View
 
             var mesures = GeneralLogic.StartMesures(_mesureParameters, _connectionParams, _resistors, _diaphragms);
         
+            WritingToFile.WriteMesureToFile(mesures);
+
+            var pointPairList = GraphLogic.GetDataForGraph(mesures);
+
+            DrawLineGraph(pointPairList);
+
         }
 
         private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,13 +58,14 @@ namespace StepMotorControllerUIPart.View
         {
             GraphPane pane = zedGraph.GraphPane;
             pane.Title.Text = "";
-            pane.XAxis.Title.Text = "Пластини";
-            pane.YAxis.Title.Text = "Ic/Iеф";
+            pane.XAxis.Title.Text = "T";
+            pane.YAxis.Title.Text = "d, CM";
 
             pane.CurveList.Clear();
 
   
-            LineItem myCurve = pane.AddCurve("Sinc", list, Color.Blue, SymbolType.None);
+            LineItem myCurve = pane.AddCurve("Sinc", list, Color.Blue, SymbolType.Circle);
+            myCurve.Symbol.Size = 3;
 
             zedGraph.AxisChange();
 

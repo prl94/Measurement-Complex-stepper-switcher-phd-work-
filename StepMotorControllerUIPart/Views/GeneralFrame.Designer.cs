@@ -36,7 +36,6 @@
             this.serialPortsComboBox = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.zedGraph = new ZedGraph.ZedGraphControl();
-            this.drawGraph = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.delayBeforeStepTextBox = new System.Windows.Forms.TextBox();
@@ -49,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 36);
+            this.label1.Location = new System.Drawing.Point(4, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 0;
@@ -57,7 +56,7 @@
             // 
             // stepsCountTextBox
             // 
-            this.stepsCountTextBox.Location = new System.Drawing.Point(150, 36);
+            this.stepsCountTextBox.Location = new System.Drawing.Point(141, 40);
             this.stepsCountTextBox.Name = "stepsCountTextBox";
             this.stepsCountTextBox.Size = new System.Drawing.Size(100, 20);
             this.stepsCountTextBox.TabIndex = 1;
@@ -65,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 68);
+            this.label2.Location = new System.Drawing.Point(4, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 2;
@@ -73,7 +72,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(9, 184);
+            this.startButton.Location = new System.Drawing.Point(27, 359);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(101, 23);
             this.startButton.TabIndex = 4;
@@ -93,7 +92,7 @@
             // 
             // zedGraph
             // 
-            this.zedGraph.Location = new System.Drawing.Point(256, 12);
+            this.zedGraph.Location = new System.Drawing.Point(247, 12);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.ScrollGrace = 0D;
             this.zedGraph.ScrollMaxX = 0D;
@@ -102,22 +101,13 @@
             this.zedGraph.ScrollMinX = 0D;
             this.zedGraph.ScrollMinY = 0D;
             this.zedGraph.ScrollMinY2 = 0D;
-            this.zedGraph.Size = new System.Drawing.Size(509, 370);
+            this.zedGraph.Size = new System.Drawing.Size(537, 385);
             this.zedGraph.TabIndex = 6;
-            // 
-            // drawGraph
-            // 
-            this.drawGraph.Location = new System.Drawing.Point(9, 213);
-            this.drawGraph.Name = "drawGraph";
-            this.drawGraph.Size = new System.Drawing.Size(98, 23);
-            this.drawGraph.TabIndex = 7;
-            this.drawGraph.Text = "Тест Графіка";
-            this.drawGraph.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 9);
+            this.label3.Location = new System.Drawing.Point(61, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 8;
@@ -126,7 +116,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 99);
+            this.label4.Location = new System.Drawing.Point(4, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 13);
             this.label4.TabIndex = 9;
@@ -134,14 +124,14 @@
             // 
             // delayBeforeStepTextBox
             // 
-            this.delayBeforeStepTextBox.Location = new System.Drawing.Point(150, 96);
+            this.delayBeforeStepTextBox.Location = new System.Drawing.Point(141, 100);
             this.delayBeforeStepTextBox.Name = "delayBeforeStepTextBox";
             this.delayBeforeStepTextBox.Size = new System.Drawing.Size(100, 20);
             this.delayBeforeStepTextBox.TabIndex = 10;
             // 
             // mesureCountTextBox
             // 
-            this.mesureCountTextBox.Location = new System.Drawing.Point(150, 65);
+            this.mesureCountTextBox.Location = new System.Drawing.Point(141, 69);
             this.mesureCountTextBox.Name = "mesureCountTextBox";
             this.mesureCountTextBox.Size = new System.Drawing.Size(100, 20);
             this.mesureCountTextBox.TabIndex = 11;
@@ -191,7 +181,6 @@
             this.Controls.Add(this.delayBeforeStepTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.drawGraph);
             this.Controls.Add(this.zedGraph);
             this.Controls.Add(this.serialPortsComboBox);
             this.Controls.Add(this.startButton);
@@ -216,7 +205,6 @@
         private System.Windows.Forms.ComboBox serialPortsComboBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ZedGraph.ZedGraphControl zedGraph;
-        private System.Windows.Forms.Button drawGraph;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox delayBeforeStepTextBox;
