@@ -2,12 +2,13 @@
 using System.IO;
 using System.IO.Ports;
 using NLog;
+using RADON.SerialPortClasses;
 using StepMotorControllerUIPart.UsedTypes;
 
 namespace StepMotorControllerUIPart.SerialPortClasses
 {
 
-    public class ModBus
+    public class ModBus : IModBus
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 

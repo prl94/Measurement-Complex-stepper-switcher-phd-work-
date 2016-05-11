@@ -2,27 +2,35 @@ using System;
 using System.IO;
 using System.IO.Ports;
 using NLog;
+using RADON.SerialPortClasses;
 
 namespace StepMotorControllerUIPart.SerialPortClasses
 {
-    public static class Arduino
+    public class Arduino : IArduino
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        private static SerialPort _serialPort;
+        private SerialPort _serialPort;
 
-        public static bool IsConnected()
+        private string _comPort;
+
+        public Arduino(string comPort)
+        {
+            _comPort = comPort;
+        }
+
+        public  bool IsConnected()
         {
             return _serialPort != null;
         }
 
-        public static void Connect(string comPort)
+        public  void Connect()
         {
             if (_serialPort == null)
             {
-                _serialPort = new SerialPort(comPort, 9600, Parity.None, 8, StopBits.One);
+                _serialPort = new SerialPort(_comPort, 9600, Parity.None, 8, StopBits.One);
                 try
                 {
-                    logger.Debug("Trying to open serial port: {0}",comPort);
+                    logger.Debug("Trying to open serial port: {0}",_comPort);
                     _serialPort.Open();
                 }
                 catch (IOException e)
@@ -33,11 +41,11 @@ namespace StepMotorControllerUIPart.SerialPortClasses
             }
             else
             {
-                logger.Debug("Port already open {0}", comPort);
+                logger.Debug("Port already open {0}", _comPort);
             }     
         }
 
-        public static void Disconnect()
+        public void Disconnect()
         {
             if (_serialPort != null)
             {
@@ -60,16 +68,16 @@ namespace StepMotorControllerUIPart.SerialPortClasses
             return SerialPort.GetPortNames();
         }
 
-        public static void MakeOneStep()
+        public void MakeOneStep()
         {
             makeStep(1);
         }
-        public static void MakeSteps(byte steps)
+        public void MakeSteps(byte steps)
         {
             makeStep(steps);
         }
 
-        private static void makeStep(byte steps)
+        private void makeStep(byte steps)
         {
             if (IsConnected())
             {

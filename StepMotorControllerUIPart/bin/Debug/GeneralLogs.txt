@@ -81,3 +81,12 @@
 2016-05-05 11:01:47.4670|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus default constructor create object
 2016-05-05 11:01:47.5670|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
 2016-05-05 11:01:47.5970|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
+2016-05-12 00:52:10.3792|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus custom constructor create object
+2016-05-12 00:52:10.4372|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
+2016-05-12 00:52:10.4372|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
+2016-05-12 00:52:10.6092|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM3
+2016-05-12 00:52:10.8422|ERROR|StepMotorControllerUIPart.SerialPortClasses.Arduino|System.IO.IOException: Порт 'COM3' не существует.
+   в System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   в System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   в System.IO.Ports.SerialPort.Open()
+   в StepMotorControllerUIPart.SerialPortClasses.Arduino.Connect() в d:\phd work\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\Arduino.cs:строка 34

@@ -17,7 +17,8 @@ namespace StepMotorControllerUIPart.UsedTypes
             ResistorsArray = new float[resistors.Count];
             for (int i= 0; i < resistors.Count; i++)
             {
-                ResistorsArray[i] = resistors["R" + i];
+                string key = "R" + (i + 1);
+                ResistorsArray[i] = resistors[key];
             }
         }
     }    

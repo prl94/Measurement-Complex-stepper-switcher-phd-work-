@@ -73,7 +73,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(9, 144);
+            this.startButton.Location = new System.Drawing.Point(9, 184);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(101, 23);
             this.startButton.TabIndex = 4;
@@ -91,13 +91,9 @@
             this.serialPortsComboBox.Text = "COMPORT";
             this.serialPortsComboBox.SelectedIndexChanged += new System.EventHandler(this.serialPortsComboBox_SelectedIndexChanged);
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
             // zedGraph
             // 
-            this.zedGraph.Location = new System.Drawing.Point(385, 12);
+            this.zedGraph.Location = new System.Drawing.Point(256, 12);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.ScrollGrace = 0D;
             this.zedGraph.ScrollMaxX = 0D;
@@ -111,13 +107,12 @@
             // 
             // drawGraph
             // 
-            this.drawGraph.Location = new System.Drawing.Point(140, 144);
+            this.drawGraph.Location = new System.Drawing.Point(9, 213);
             this.drawGraph.Name = "drawGraph";
             this.drawGraph.Size = new System.Drawing.Size(98, 23);
             this.drawGraph.TabIndex = 7;
             this.drawGraph.Text = "Тест Графіка";
             this.drawGraph.UseVisualStyleBackColor = true;
-            this.drawGraph.Click += new System.EventHandler(this.drawGraph_Click);
             // 
             // label3
             // 
@@ -188,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(906, 522);
+            this.ClientSize = new System.Drawing.Size(796, 522);
             this.Controls.Add(this.CalibrationButton);
             this.Controls.Add(this.calibrationLabel);
             this.Controls.Add(this.arduinoComPortLabel);
@@ -206,6 +201,7 @@
             this.Name = "GeneralView";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.GeneralView_Load);
+            this.Shown += new System.EventHandler(this.GeneralView_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

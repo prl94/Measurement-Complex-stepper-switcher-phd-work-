@@ -15,7 +15,9 @@ namespace StepMotorControllerUIPart.UsedTypes
             DiaphragmsArray = new float[diaphragms.Count];
             for (int i = 0; i < diaphragms.Count; i++)
             {
-                DiaphragmsArray[i] = diaphragms["D" + i];
+
+                string key = "d" + (i + 1);
+                DiaphragmsArray[i] = diaphragms[key];
             }
         }
     }

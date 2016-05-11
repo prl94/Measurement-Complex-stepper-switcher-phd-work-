@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using NLog;
+using RADON.SerialPortClasses;
+using RADON.SerialPortClasses.test;
 using StepMotorControllerUIPart.SerialPortClasses;
 using StepMotorControllerUIPart.UsedTypes;
 
@@ -11,12 +13,14 @@ namespace StepMotorControllerUIPart.Logic
     public static class GeneralLogic
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        
-        public static bool Calibration(AdcArduinoParams adcArduinoParams)
+
+        public static bool Calibration(ConnectionParams connectionParams)
         {
-            ModBus adc = new ModBus();
+            IModBus adc = new ModBus(connectionParams.ModBusComPort);
+            IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
+            
             adc.Connect();
-            Arduino.Connect(adcArduinoParams.ArduinoComPort);
+            arduino.Connect();
 
             if (CalibrationStart != null) CalibrationStart();
 
@@ -26,7 +30,7 @@ namespace StepMotorControllerUIPart.Logic
                 float[] calibrationData = new float[10];
                 for (int j = 0; j < calibrationData.Length; j++)
                 {
-                    calibrationData[j] = adc.Read(adcArduinoParams.Stepper1Adress);
+                    calibrationData[j] = adc.Read(connectionParams.Channel1Adress);
                 }
                 // if average value < 1 stepper in correct position
                 if (calibrationData.Average() >= 1)
@@ -38,10 +42,12 @@ namespace StepMotorControllerUIPart.Logic
                     return true;
                 }
 
-                    Arduino.MakeOneStep();
+                    arduino.MakeOneStep();
                     Thread.Sleep(3000);
             }
             adc.Disconnect();
+            arduino.Disconnect();
+
             if (CalibrationFinish != null) CalibrationFinish(false);
             return false;
         }
@@ -50,36 +56,42 @@ namespace StepMotorControllerUIPart.Logic
         public static event Action<int> CalibrationStep;
         public static event Action<bool> CalibrationFinish;
 
-
-        public static List<Mesure> GetMesures(MesureParameters parameters, AdcArduinoParams adcArduinoParams, Resistors resistors, Diaphragms diaphragms)
+        //todo current realisation works only to 10 steps rework for ability work with 12
+        public static List<Mesure> StartMesures(MesureParams mesureParams, ConnectionParams connectionParams, Resistors resistors, Diaphragms diaphragms)
         {
 
-            ModBus adc = new ModBus();
-            Arduino.Connect(adcArduinoParams.ArduinoComPort);
+          //  IModBus adc = new ModBus(connectionParams.ModBusComPort);
+          //  IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
+
+            IModBus adc = new ModBusTest();
+            IArduino arduino = new ArduinoTest();
+
             adc.Connect();
+            arduino.Connect();
+
             var mesuresList = new List<Mesure>();
 
             List<Mesure> stepper1List = new List<Mesure>();
             List<Mesure> stepper2List = new List<Mesure>();
 
             logger.Debug("Start Mesures");
-            for (int i = 1; i <= parameters.StepsCount; i++)
+            for (int i = 1; i <= mesureParams.StepsCount; i++)
             {
                 logger.Trace("Mesure for {0} step", i);
-                
-                Arduino.MakeOneStep();
-                Thread.Sleep(parameters.DelayAfterStep);
 
-                var length = parameters.MesuresCount;
+                arduino.MakeOneStep();
+                Thread.Sleep(mesureParams.DelayAfterStep);
+
+                var length = mesureParams.MesuresCount;
                 float[] dataFromOscillatorArray = new float[length],
                     dataFromStepper1Array = new float[length],
                     dataFromStepper2Array = new float[length];
 
-                for (int j = 0; j < parameters.MesuresCount; j++)
+                for (int j = 0; j < mesureParams.MesuresCount; j++)
                 {
-                    dataFromOscillatorArray[j] = adc.Read(adcArduinoParams.OscillatorAdress);
-                    dataFromStepper1Array[j] = adc.Read(adcArduinoParams.Stepper1Adress);
-                    dataFromStepper2Array[j] = adc.Read(adcArduinoParams.Stepper2Adress);
+                    dataFromOscillatorArray[j] = adc.Read(connectionParams.SecondaryEmisionMonitorAdress);
+                    dataFromStepper1Array[j] = adc.Read(connectionParams.Channel1Adress);
+                    dataFromStepper2Array[j] = adc.Read(connectionParams.Channel2Adress);
 
                 }
                 stepper1List.Add(new Mesure(i, dataFromOscillatorArray, dataFromStepper1Array,resistors.ResistorsArray[i-1],diaphragms.DiaphragmsArray[i-1]));
@@ -88,6 +100,10 @@ namespace StepMotorControllerUIPart.Logic
                 mesuresList.AddRange(stepper1List);
                 mesuresList.AddRange(stepper2List);
             }
+
+            adc.Disconnect();
+            arduino.Disconnect();
+
             logger.Debug("Finished Mesures");
             return mesuresList;
         }
