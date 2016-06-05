@@ -43,12 +43,14 @@
             this.arduinoComPortLabel = new System.Windows.Forms.Label();
             this.calibrationLabel = new System.Windows.Forms.Label();
             this.CalibrationButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.stepCountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 40);
+            this.label1.Location = new System.Drawing.Point(1, 241);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 0;
@@ -56,15 +58,15 @@
             // 
             // stepsCountTextBox
             // 
-            this.stepsCountTextBox.Location = new System.Drawing.Point(141, 40);
+            this.stepsCountTextBox.Location = new System.Drawing.Point(138, 241);
             this.stepsCountTextBox.Name = "stepsCountTextBox";
-            this.stepsCountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.stepsCountTextBox.Size = new System.Drawing.Size(46, 20);
             this.stepsCountTextBox.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 72);
+            this.label2.Location = new System.Drawing.Point(1, 273);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 2;
@@ -72,7 +74,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(27, 359);
+            this.startButton.Location = new System.Drawing.Point(4, 336);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(101, 23);
             this.startButton.TabIndex = 4;
@@ -92,7 +94,7 @@
             // 
             // zedGraph
             // 
-            this.zedGraph.Location = new System.Drawing.Point(247, 12);
+            this.zedGraph.Location = new System.Drawing.Point(193, 12);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.ScrollGrace = 0D;
             this.zedGraph.ScrollMaxX = 0D;
@@ -101,13 +103,13 @@
             this.zedGraph.ScrollMinX = 0D;
             this.zedGraph.ScrollMinY = 0D;
             this.zedGraph.ScrollMinY2 = 0D;
-            this.zedGraph.Size = new System.Drawing.Size(537, 385);
+            this.zedGraph.Size = new System.Drawing.Size(591, 385);
             this.zedGraph.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 13);
+            this.label3.Location = new System.Drawing.Point(58, 214);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 8;
@@ -116,7 +118,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 103);
+            this.label4.Location = new System.Drawing.Point(1, 304);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 13);
             this.label4.TabIndex = 9;
@@ -124,16 +126,16 @@
             // 
             // delayBeforeStepTextBox
             // 
-            this.delayBeforeStepTextBox.Location = new System.Drawing.Point(141, 100);
+            this.delayBeforeStepTextBox.Location = new System.Drawing.Point(138, 301);
             this.delayBeforeStepTextBox.Name = "delayBeforeStepTextBox";
-            this.delayBeforeStepTextBox.Size = new System.Drawing.Size(100, 20);
+            this.delayBeforeStepTextBox.Size = new System.Drawing.Size(46, 20);
             this.delayBeforeStepTextBox.TabIndex = 10;
             // 
             // mesureCountTextBox
             // 
-            this.mesureCountTextBox.Location = new System.Drawing.Point(141, 69);
+            this.mesureCountTextBox.Location = new System.Drawing.Point(138, 270);
             this.mesureCountTextBox.Name = "mesureCountTextBox";
-            this.mesureCountTextBox.Size = new System.Drawing.Size(100, 20);
+            this.mesureCountTextBox.Size = new System.Drawing.Size(46, 20);
             this.mesureCountTextBox.TabIndex = 11;
             // 
             // arduinoComPortLabel
@@ -160,7 +162,7 @@
             // 
             // CalibrationButton
             // 
-            this.CalibrationButton.Location = new System.Drawing.Point(165, 487);
+            this.CalibrationButton.Location = new System.Drawing.Point(165, 484);
             this.CalibrationButton.Name = "CalibrationButton";
             this.CalibrationButton.Size = new System.Drawing.Size(75, 23);
             this.CalibrationButton.TabIndex = 14;
@@ -168,12 +170,33 @@
             this.CalibrationButton.UseVisualStyleBackColor = true;
             this.CalibrationButton.Click += new System.EventHandler(this.CalibrationButton_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(10, 412);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Номер кроку :";
+            // 
+            // stepCountLabel
+            // 
+            this.stepCountLabel.AutoSize = true;
+            this.stepCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.stepCountLabel.Location = new System.Drawing.Point(92, 409);
+            this.stepCountLabel.Name = "stepCountLabel";
+            this.stepCountLabel.Size = new System.Drawing.Size(16, 18);
+            this.stepCountLabel.TabIndex = 16;
+            this.stepCountLabel.Text = "0";
+            // 
             // GeneralView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(796, 522);
+            this.Controls.Add(this.stepCountLabel);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.CalibrationButton);
             this.Controls.Add(this.calibrationLabel);
             this.Controls.Add(this.arduinoComPortLabel);
@@ -189,7 +212,6 @@
             this.Controls.Add(this.label1);
             this.Name = "GeneralView";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.GeneralView_Load);
             this.Shown += new System.EventHandler(this.GeneralView_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,6 +234,8 @@
         private System.Windows.Forms.Label arduinoComPortLabel;
         private System.Windows.Forms.Label calibrationLabel;
         private System.Windows.Forms.Button CalibrationButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label stepCountLabel;
     }
 }
 

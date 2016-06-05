@@ -34,3 +34,114 @@
 2016-05-12 01:44:57.0203|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
 2016-05-12 01:44:58.7704|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
 2016-05-12 01:45:00.5205|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-15 23:14:10.6939|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-15 23:14:10.7339|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-15 23:14:16.4909|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-15 23:14:22.2529|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-15 23:14:28.0140|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-15 23:14:33.7720|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-15 23:14:39.5240|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-15 23:14:45.2770|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-15 23:14:51.0330|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-15 23:14:56.7900|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-15 23:15:02.5580|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-15 23:15:08.3190|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-15 23:20:51.3276|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|ModBus custom constructor create object
+2016-05-15 23:20:51.3776|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|if serial port = 0
+2016-05-15 23:20:51.4176|TRACE|StepMotorControllerUIPart.SerialPortClasses.ModBus|Oppened Serial Port
+2016-05-15 23:20:51.4776|DEBUG|StepMotorControllerUIPart.SerialPortClasses.Arduino|Trying to open serial port: COM3
+2016-05-15 23:20:51.7276|ERROR|StepMotorControllerUIPart.SerialPortClasses.Arduino|System.IO.IOException: Порт 'COM3' не существует.
+   в System.IO.Ports.InternalResources.WinIOError(Int32 errorCode, String str)
+   в System.IO.Ports.SerialStream..ctor(String portName, Int32 baudRate, Parity parity, Int32 dataBits, StopBits stopBits, Int32 readTimeout, Int32 writeTimeout, Handshake handshake, Boolean dtrEnable, Boolean rtsEnable, Boolean discardNull, Byte parityReplace)
+   в System.IO.Ports.SerialPort.Open()
+   в StepMotorControllerUIPart.SerialPortClasses.Arduino.Connect() в d:\phd work\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\SerialPortClasses\Arduino.cs:строка 34
+2016-05-15 23:26:42.6410|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-15 23:26:42.6710|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-15 23:26:48.4380|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-15 23:26:54.1890|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-15 23:26:59.9470|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-15 23:27:05.6990|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-15 23:27:11.4550|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-15 23:27:17.2250|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-15 23:27:22.9810|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-15 23:27:28.7411|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-15 23:27:34.4911|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-15 23:27:40.2441|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-15 23:40:43.8166|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-15 23:40:43.8466|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-15 23:40:49.6047|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-15 23:40:55.3597|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-15 23:41:01.1167|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-15 23:41:06.8717|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-15 23:41:12.6307|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-15 23:41:18.3817|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-15 23:41:24.1377|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-15 23:41:29.8897|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-15 23:41:35.6407|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-15 23:41:41.3917|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-15 23:42:35.3160|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-15 23:42:35.3560|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-15 23:42:41.1170|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-15 23:42:46.8700|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-15 23:42:52.6280|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-15 23:42:58.3800|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-15 23:43:04.1340|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-15 23:43:09.8971|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-15 23:43:15.6601|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-15 23:43:21.4141|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-15 23:43:27.1691|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-15 23:43:32.9251|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-15 23:45:03.2167|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-15 23:45:03.2467|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-15 23:45:09.0177|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-15 23:45:14.7737|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-15 23:45:20.5327|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-15 23:45:26.2877|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-15 23:45:32.0458|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-15 23:45:37.8048|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-15 23:45:43.5548|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-15 23:45:49.3098|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-15 23:45:55.0628|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-15 23:46:00.8128|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-31 00:58:21.7779|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-31 00:58:21.8759|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-31 00:58:27.6409|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-31 00:58:33.4010|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-31 00:58:39.1530|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-31 00:58:44.9230|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-31 00:58:50.6810|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-31 00:58:56.4370|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-31 00:59:02.1920|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-31 00:59:07.9460|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-31 00:59:13.7061|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-31 00:59:19.5271|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-31 01:10:26.2980|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-31 01:10:26.3380|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-31 01:10:32.0930|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-31 01:10:37.8500|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-31 01:11:09.9641|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-31 01:11:10.0041|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-31 01:11:19.8592|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-31 01:11:43.5273|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-31 01:11:48.4413|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-31 01:11:51.2003|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-31 01:11:53.9593|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-31 01:11:56.7213|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-31 01:11:59.4813|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-31 01:12:02.2443|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-31 01:12:04.9953|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-31 01:12:07.7543|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures
+2016-05-31 01:14:22.2871|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-31 01:14:22.3471|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-31 01:18:22.3634|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Start Mesures
+2016-05-31 01:18:22.3934|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 1 step
+2016-05-31 01:18:25.1514|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 2 step
+2016-05-31 01:18:27.9194|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 3 step
+2016-05-31 01:18:30.6824|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 4 step
+2016-05-31 01:18:33.4394|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 5 step
+2016-05-31 01:18:36.1964|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 6 step
+2016-05-31 01:18:38.9464|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 7 step
+2016-05-31 01:18:41.7024|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 8 step
+2016-05-31 01:18:44.4584|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 9 step
+2016-05-31 01:18:47.2094|TRACE|StepMotorControllerUIPart.Logic.GeneralLogic|Mesure for 10 step
+2016-05-31 01:18:49.9835|DEBUG|StepMotorControllerUIPart.Logic.GeneralLogic|Finished Mesures

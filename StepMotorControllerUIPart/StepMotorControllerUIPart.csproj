@@ -65,7 +65,6 @@
     <Compile Include="UsedTypes\MesureParams.cs" />
     <Compile Include="UsedTypes\Mesure.cs" />
     <Compile Include="Helper\MathHelper.cs" />
-    <Compile Include="Helper\ThreadSafeRandom.cs" />
     <Compile Include="SerialPortClasses\ModBus.cs" />
     <Compile Include="SerialPortClasses\Arduino.cs" />
     <Compile Include="UsedTypes\Resistors.cs" />

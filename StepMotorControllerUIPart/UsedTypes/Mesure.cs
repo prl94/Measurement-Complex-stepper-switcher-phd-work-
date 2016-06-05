@@ -1,11 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using StepMotorControllerUIPart.Helper;
 
 namespace StepMotorControllerUIPart.UsedTypes
 {
     public class Mesure
     {
-
         public readonly int MesureNumber;
         public readonly float[] USecondaryEmitionMonitor;
         public readonly float[] UChannel;

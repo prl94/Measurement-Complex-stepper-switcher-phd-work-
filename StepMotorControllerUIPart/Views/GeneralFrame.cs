@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO.Ports;
+using System.Threading;
 using System.Windows.Forms;
 using StepMotorControllerUIPart.Helper;
 using StepMotorControllerUIPart.SerialPortClasses;
@@ -15,6 +16,8 @@ namespace StepMotorControllerUIPart.View
 {
     public partial class GeneralView : Form
     {
+
+        Thread _myThread;
 
         private Diaphragms _diaphragms;
         private Resistors _resistors;
@@ -32,16 +35,30 @@ namespace StepMotorControllerUIPart.View
   
         private void startButton_Click(object sender, EventArgs e)
         {
+            _myThread = new Thread(startMesures);
+            _myThread.Start();
+
+        }
+
+        private void startMesures()
+        {
+            GeneralLogic.MesureStep += GeneralLogic_MesureStep;
 
             var mesures = GeneralLogic.StartMesures(_mesureParameters, _connectionParams, _resistors, _diaphragms);
-        
+
             WritingToFile.WriteMesureToFile(mesures);
+
 
             var pointPairList = GraphLogic.GetDataForGraph(mesures);
 
             DrawLineGraph(pointPairList);
-
         }
+
+        private void GeneralLogic_MesureStep(int obj)
+        {
+
+            stepCountLabel.Text  = Convert.ToString(obj);
+            }
 
         private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -58,9 +75,9 @@ namespace StepMotorControllerUIPart.View
         {
             GraphPane pane = zedGraph.GraphPane;
             pane.Title.Text = "";
-            pane.XAxis.Title.Text = "T";
-            pane.YAxis.Title.Text = "d, CM";
-
+            pane.XAxis.Title.Text = "d, CM";
+            pane.YAxis.Title.Text = "T";
+            pane.Legend.IsVisible = false;
             pane.CurveList.Clear();
 
   
@@ -99,14 +116,6 @@ namespace StepMotorControllerUIPart.View
             MessageBox.Show("Калібрація закінчилась невдало");
         }
 
-
-
-        private void GeneralView_Load(object sender, EventArgs e)
-        {
-
-            
-        }
-
         private void GeneralView_Shown(object sender, EventArgs e)
         {
             // take data from config file
@@ -117,12 +126,19 @@ namespace StepMotorControllerUIPart.View
             var channel1 = ConfigReader.GetAdress(Constans.Channel1AdcNumber, Constans.Channel1ChannelNumber);
             var channel2 = ConfigReader.GetAdress(Constans.Channel2AdcNumber, Constans.Channel2ChannelNumber);
 
-            //todo add com ports to config file
-            _connectionParams = new ConnectionParams("COM1", "COM3", secondaryEmisionMonitor, channel1, channel2);
+            string arduinoPort = ConfigurationManager.AppSettings["ArduinoPort"];
+            string ADCPort = ConfigurationManager.AppSettings["ADCPort"];
 
-            // todo add mesure params to config file
-            _mesureParameters = new MesureParams(10, 25, 1);
+            _connectionParams = new ConnectionParams(ADCPort, arduinoPort, secondaryEmisionMonitor, channel1, channel2);
+
+
+            int stepsCount = Convert.ToInt32(ConfigurationManager.AppSettings["StepsCount"]);
+            int mesuresPerStep = Convert.ToInt32(ConfigurationManager.AppSettings["MesuresPerStep"]);
+            int delayBeforeStep = Convert.ToInt32(ConfigurationManager.AppSettings["DelayBeforeStep"]);
+            _mesureParameters = new MesureParams(stepsCount, mesuresPerStep, delayBeforeStep);
         }
+
+
     }
     
 }
