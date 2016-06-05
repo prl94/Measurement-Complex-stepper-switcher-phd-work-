@@ -10,10 +10,12 @@ namespace StepMotorControllerUIPart.Helper
     public class WritingToFile
     {
 
+        private static String _fileName;
+
         public static void WriteMesureToFile(List<Mesure> mesures)
         {
-
-            String fileName = ("Виміри " + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss") + ".txt");
+            _fileName = ("виміри " + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss") + ".txt");
+            String fileName = "1"+_fileName;
             StreamWriter writer = new StreamWriter(fileName);
 
             // Display header
@@ -29,6 +31,30 @@ namespace StepMotorControllerUIPart.Helper
                     mesure.MesureNumber, mesure.USecondaryEmitionMonitorAverage, mesure.USecondaryEmitionMonitorStandardDeviation,
                     mesure.UChannelAverage, mesure.UChannelStandardDeviation, mesure.Inorm, mesure.Resistor, mesure.Diaphragm, Environment.NewLine);
                 
+            }
+
+            writer.WriteLine(sb.ToString());
+            writer.Close();
+
+        }
+        public static void WriteFinaleToFile(SortedList<double, double> arrForTextFile)
+        {
+            _fileName = ("виміри " + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss") + ".txt");
+            String fileName = "2" + _fileName;
+            StreamWriter writer = new StreamWriter(fileName);
+
+            // Display header
+            string header = String.Format("{0,-25}{1,-25}\n","D", "T");
+
+            writer.WriteLine(header);
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var data in arrForTextFile)
+            {
+                writer.Write("{0,-25}{1,-25}{2}",
+                    data.Key, data.Value, Environment.NewLine);
+
             }
 
             writer.WriteLine(sb.ToString());

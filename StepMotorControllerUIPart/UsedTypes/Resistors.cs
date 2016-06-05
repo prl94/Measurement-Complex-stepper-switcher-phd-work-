@@ -5,9 +5,6 @@ using System.Text;
 
 namespace StepMotorControllerUIPart.UsedTypes
 {
-
-    //todo add resistors array instead of current realisation
-
     public class Resistors
     {
        public float[] ResistorsArray;

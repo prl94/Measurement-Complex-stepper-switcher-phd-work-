@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using StepMotorControllerUIPart.Helper;
 using StepMotorControllerUIPart.UsedTypes;
 using ZedGraph;
 
@@ -9,6 +10,8 @@ namespace StepMotorControllerUIPart.Logic
 {
     static class GraphLogic
     {
+        public static SortedList<double, double> FinalDataArray;
+
         public static PointPairList GetDataForGraph(List<Mesure> mesuresList)
         {
             int count = mesuresList.Count;
@@ -26,11 +29,16 @@ namespace StepMotorControllerUIPart.Logic
 
 
             var pointPairList = new PointPairList();
+
+            FinalDataArray = new SortedList<double, double>();
+
+            // todo need to refactor next loop
             for (int i = 0; i < count; i++)
             {
+                FinalDataArray.Add(diaphragmasArrayComplete[i], inormArrayComplete[i] / inormArrayComplete[0]);
                 pointPairList.Add(diaphragmasArrayComplete[i], inormArrayComplete[i] / inormArrayComplete[0]);
             }
-
+            WritingToFile.WriteFinaleToFile(FinalDataArray);
             return pointPairList;
         }
         private static double[] PrepareCurrentArray(double[] arr)

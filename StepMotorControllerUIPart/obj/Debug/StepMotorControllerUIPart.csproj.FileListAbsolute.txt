@@ -84,3 +84,14 @@ D:\phd work\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUI
 D:\phd work\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
 D:\phd work\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
 D:\phd work\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe.config
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\bin\Debug\NLog.config
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.exe
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\bin\Debug\StepMotorControllerUIPart.pdb
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\bin\Debug\NLog.dll
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\bin\Debug\NLog.xml
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.View.GeneralView.resources
+E:\phd\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache

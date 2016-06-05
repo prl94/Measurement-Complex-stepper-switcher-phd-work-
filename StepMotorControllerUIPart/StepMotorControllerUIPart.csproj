@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\ConfigReader.cs" />
+    <Compile Include="Helper\LinearRegression.cs" />
     <Compile Include="Logic\GeneralLogic.cs" />
     <Compile Include="Logic\GraphLogic.cs" />
     <Compile Include="SerialPortClasses\test\ArduinoTest.cs" />
