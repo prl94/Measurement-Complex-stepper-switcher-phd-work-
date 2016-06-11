@@ -36,15 +36,6 @@ namespace StepMotorControllerUIPart.View
   
         private void startButton_Click(object sender, EventArgs e)
         {
-            _myThread = new Thread(startMesures);
-            _myThread.Start();
-
-        }
-
-        private void startMesures()
-        {
-         //   GeneralLogic.MesureStep += GeneralLogic_MesureStep;
-
             var mesures = GeneralLogic.StartMesures(_mesureParameters, _connectionParams, _resistors, _diaphragms);
 
             WritingToFile.WriteMesureToFile(mesures);
@@ -53,6 +44,14 @@ namespace StepMotorControllerUIPart.View
             var pointPairList = GraphLogic.GetDataForGraph(mesures);
 
             DrawLineGraph(pointPairList);
+
+        }
+
+        private void startMesures()
+        {
+         //   GeneralLogic.MesureStep += GeneralLogic_MesureStep;
+
+            
         }
 
    /*     private void GeneralLogic_MesureStep(int obj)
@@ -230,7 +229,7 @@ namespace StepMotorControllerUIPart.View
             double b = ln.b;
 
 
-            RLabel.Text = Math.Abs( Math.Round(a, 4)).ToString();
+            RLabel.Text = Math.Abs( Math.Round(b/a, 4)).ToString();
             // y = a*x + b 
 
             double x1 = 0;
@@ -264,6 +263,7 @@ namespace StepMotorControllerUIPart.View
 
             LineItem myCurve = pane.AddCurve("", list, Color.Red, SymbolType.None);
 
+            myCurve.Line.Width = 2;
             zedGraph.AxisChange();
 
             // Обновляем график

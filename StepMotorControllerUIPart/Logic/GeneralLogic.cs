@@ -61,11 +61,11 @@ namespace StepMotorControllerUIPart.Logic
         public static List<Mesure> StartMesures(MesureParams mesureParams, ConnectionParams connectionParams, Resistors resistors, Diaphragms diaphragms)
         {
 
-          //  IModBus adc = new ModBus(connectionParams.ModBusComPort);
-          //  IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
+            IModBus adc = new ModBus(connectionParams.ModBusComPort);
+            IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
 
-            IModBus adc = new ModBusTest();
-            IArduino arduino = new ArduinoTest();
+            //IModBus adc = new ModBusTest();
+           // IArduino arduino = new ArduinoTest();
 
             adc.Connect();
             arduino.Connect();
