@@ -55,6 +55,11 @@
     <Compile Include="Helper\LinearRegression.cs" />
     <Compile Include="Logic\GeneralLogic.cs" />
     <Compile Include="Logic\GraphLogic.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="SerialPortClasses\test\ArduinoTest.cs" />
     <Compile Include="SerialPortClasses\IArduino.cs" />
     <Compile Include="SerialPortClasses\IModBus.cs" />
@@ -88,6 +93,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

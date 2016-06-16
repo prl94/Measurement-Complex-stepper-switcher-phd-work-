@@ -47,16 +47,36 @@
             this.stepCountLabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
+            this.RLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dot2TextBox = new System.Windows.Forms.TextBox();
             this.dot1TextBox = new System.Windows.Forms.TextBox();
             this.SettingsTabPage = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.RLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.AKONCOMPortTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.saveSettingsButton = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.ArduinoCOMPortTextBox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.SecondaryEmisionMonitorAdcNumberTextBox = new System.Windows.Forms.TextBox();
+            this.SecondaryEmisionMonitorChannelNumberTextBox = new System.Windows.Forms.TextBox();
+            this.Channel1AdcNumberTextBox = new System.Windows.Forms.TextBox();
+            this.Channel1ChannelNumberTextBox = new System.Windows.Forms.TextBox();
+            this.Channel2AdcNumberTextBox = new System.Windows.Forms.TextBox();
+            this.Channel2ChannelNumberTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.generalTabPage.SuspendLayout();
+            this.SettingsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -244,6 +264,24 @@
             this.generalTabPage.Text = "Головна";
             this.generalTabPage.UseVisualStyleBackColor = true;
             // 
+            // RLabel
+            // 
+            this.RLabel.AutoSize = true;
+            this.RLabel.Location = new System.Drawing.Point(654, 415);
+            this.RLabel.Name = "RLabel";
+            this.RLabel.Size = new System.Drawing.Size(13, 13);
+            this.RLabel.TabIndex = 23;
+            this.RLabel.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(621, 415);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "R = ";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(426, 454);
@@ -288,6 +326,25 @@
             // 
             // SettingsTabPage
             // 
+            this.SettingsTabPage.Controls.Add(this.Channel2AdcNumberTextBox);
+            this.SettingsTabPage.Controls.Add(this.Channel2ChannelNumberTextBox);
+            this.SettingsTabPage.Controls.Add(this.Channel1AdcNumberTextBox);
+            this.SettingsTabPage.Controls.Add(this.Channel1ChannelNumberTextBox);
+            this.SettingsTabPage.Controls.Add(this.SecondaryEmisionMonitorChannelNumberTextBox);
+            this.SettingsTabPage.Controls.Add(this.SecondaryEmisionMonitorAdcNumberTextBox);
+            this.SettingsTabPage.Controls.Add(this.ArduinoCOMPortTextBox);
+            this.SettingsTabPage.Controls.Add(this.label18);
+            this.SettingsTabPage.Controls.Add(this.label16);
+            this.SettingsTabPage.Controls.Add(this.label17);
+            this.SettingsTabPage.Controls.Add(this.label14);
+            this.SettingsTabPage.Controls.Add(this.label15);
+            this.SettingsTabPage.Controls.Add(this.label13);
+            this.SettingsTabPage.Controls.Add(this.label12);
+            this.SettingsTabPage.Controls.Add(this.AKONCOMPortTextBox);
+            this.SettingsTabPage.Controls.Add(this.label11);
+            this.SettingsTabPage.Controls.Add(this.saveSettingsButton);
+            this.SettingsTabPage.Controls.Add(this.label10);
+            this.SettingsTabPage.Controls.Add(this.label9);
             this.SettingsTabPage.Location = new System.Drawing.Point(4, 22);
             this.SettingsTabPage.Name = "SettingsTabPage";
             this.SettingsTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -296,24 +353,164 @@
             this.SettingsTabPage.Text = "Параметри";
             this.SettingsTabPage.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // label12
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(621, 415);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "R = ";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(3, 59);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(139, 13);
+            this.label12.TabIndex = 5;
+            this.label12.Text = "Мононітор втор. емісії ацп";
             // 
-            // RLabel
+            // AKONCOMPortTextBox
             // 
-            this.RLabel.AutoSize = true;
-            this.RLabel.Location = new System.Drawing.Point(654, 415);
-            this.RLabel.Name = "RLabel";
-            this.RLabel.Size = new System.Drawing.Size(13, 13);
-            this.RLabel.TabIndex = 23;
-            this.RLabel.Text = "0";
-            this.RLabel.Click += new System.EventHandler(this.label9_Click);
+            this.AKONCOMPortTextBox.Location = new System.Drawing.Point(89, 36);
+            this.AKONCOMPortTextBox.Name = "AKONCOMPortTextBox";
+            this.AKONCOMPortTextBox.Size = new System.Drawing.Size(76, 20);
+            this.AKONCOMPortTextBox.TabIndex = 4;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 39);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "АКОН ComPort";
+            // 
+            // saveSettingsButton
+            // 
+            this.saveSettingsButton.Location = new System.Drawing.Point(887, 464);
+            this.saveSettingsButton.Name = "saveSettingsButton";
+            this.saveSettingsButton.Size = new System.Drawing.Size(75, 23);
+            this.saveSettingsButton.TabIndex = 2;
+            this.saveSettingsButton.Text = "Зберегти";
+            this.saveSettingsButton.UseVisualStyleBackColor = true;
+            this.saveSettingsButton.Click += new System.EventHandler(this.saveSattingsButton_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 232);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(106, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Параметри Ардуїно";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Параметри АКОН";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(4, 85);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(151, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Мононітор втор. емісії канал";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(4, 149);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(80, 13);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Канал 1 канал";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(4, 127);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(68, 13);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Канал 1 ацп";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(4, 201);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(80, 13);
+            this.label16.TabIndex = 10;
+            this.label16.Text = "Канал 2 канал";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(4, 177);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(68, 13);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "Канал 2 ацп";
+            // 
+            // ArduinoCOMPortTextBox
+            // 
+            this.ArduinoCOMPortTextBox.Location = new System.Drawing.Point(98, 254);
+            this.ArduinoCOMPortTextBox.Name = "ArduinoCOMPortTextBox";
+            this.ArduinoCOMPortTextBox.Size = new System.Drawing.Size(76, 20);
+            this.ArduinoCOMPortTextBox.TabIndex = 12;
+            this.ArduinoCOMPortTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 257);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(89, 13);
+            this.label18.TabIndex = 11;
+            this.label18.Text = "Ардуїно ComPort";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
+            // SecondaryEmisionMonitorAdcNumberTextBox
+            // 
+            this.SecondaryEmisionMonitorAdcNumberTextBox.Location = new System.Drawing.Point(174, 52);
+            this.SecondaryEmisionMonitorAdcNumberTextBox.Name = "SecondaryEmisionMonitorAdcNumberTextBox";
+            this.SecondaryEmisionMonitorAdcNumberTextBox.Size = new System.Drawing.Size(76, 20);
+            this.SecondaryEmisionMonitorAdcNumberTextBox.TabIndex = 13;
+            // 
+            // SecondaryEmisionMonitorChannelNumberTextBox
+            // 
+            this.SecondaryEmisionMonitorChannelNumberTextBox.Location = new System.Drawing.Point(174, 78);
+            this.SecondaryEmisionMonitorChannelNumberTextBox.Name = "SecondaryEmisionMonitorChannelNumberTextBox";
+            this.SecondaryEmisionMonitorChannelNumberTextBox.Size = new System.Drawing.Size(76, 20);
+            this.SecondaryEmisionMonitorChannelNumberTextBox.TabIndex = 14;
+            // 
+            // Channel1AdcNumberTextBox
+            // 
+            this.Channel1AdcNumberTextBox.Location = new System.Drawing.Point(98, 120);
+            this.Channel1AdcNumberTextBox.Name = "Channel1AdcNumberTextBox";
+            this.Channel1AdcNumberTextBox.Size = new System.Drawing.Size(76, 20);
+            this.Channel1AdcNumberTextBox.TabIndex = 16;
+            // 
+            // Channel1ChannelNumberTextBox
+            // 
+            this.Channel1ChannelNumberTextBox.Location = new System.Drawing.Point(98, 142);
+            this.Channel1ChannelNumberTextBox.Name = "Channel1ChannelNumberTextBox";
+            this.Channel1ChannelNumberTextBox.Size = new System.Drawing.Size(76, 20);
+            this.Channel1ChannelNumberTextBox.TabIndex = 15;
+            // 
+            // Channel2AdcNumberTextBox
+            // 
+            this.Channel2AdcNumberTextBox.Location = new System.Drawing.Point(98, 172);
+            this.Channel2AdcNumberTextBox.Name = "Channel2AdcNumberTextBox";
+            this.Channel2AdcNumberTextBox.Size = new System.Drawing.Size(76, 20);
+            this.Channel2AdcNumberTextBox.TabIndex = 18;
+            // 
+            // Channel2ChannelNumberTextBox
+            // 
+            this.Channel2ChannelNumberTextBox.Location = new System.Drawing.Point(98, 197);
+            this.Channel2ChannelNumberTextBox.Name = "Channel2ChannelNumberTextBox";
+            this.Channel2ChannelNumberTextBox.Size = new System.Drawing.Size(76, 20);
+            this.Channel2ChannelNumberTextBox.TabIndex = 17;
             // 
             // GeneralView
             // 
@@ -328,6 +525,8 @@
             this.tabControl1.ResumeLayout(false);
             this.generalTabPage.ResumeLayout(false);
             this.generalTabPage.PerformLayout();
+            this.SettingsTabPage.ResumeLayout(false);
+            this.SettingsTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -360,6 +559,25 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label RLabel;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button saveSettingsButton;
+        private System.Windows.Forms.TextBox AKONCOMPortTextBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox ArduinoCOMPortTextBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox SecondaryEmisionMonitorAdcNumberTextBox;
+        private System.Windows.Forms.TextBox Channel2AdcNumberTextBox;
+        private System.Windows.Forms.TextBox Channel2ChannelNumberTextBox;
+        private System.Windows.Forms.TextBox Channel1AdcNumberTextBox;
+        private System.Windows.Forms.TextBox Channel1ChannelNumberTextBox;
+        private System.Windows.Forms.TextBox SecondaryEmisionMonitorChannelNumberTextBox;
     }
 }
 

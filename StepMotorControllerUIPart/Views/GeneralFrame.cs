@@ -10,7 +10,7 @@ using StepMotorControllerUIPart.Helper;
 using StepMotorControllerUIPart.SerialPortClasses;
 using StepMotorControllerUIPart.UsedTypes;
 using StepMotorControllerUIPart.Logic;
-
+using StepMotorControllerUIPart.Properties;
 using ZedGraph;
 
 namespace StepMotorControllerUIPart.View
@@ -120,8 +120,49 @@ namespace StepMotorControllerUIPart.View
             MessageBox.Show("Калібрація закінчилась невдало");
         }
 
+
+        private void InitSettings()
+        {
+            
+            AKONCOMPortTextBox.Text = Settings.Default.AKONCOMPort;
+
+            SecondaryEmisionMonitorAdcNumberTextBox.Text = Settings.Default.SecondaryEmisionMonitorAdcNumber.ToString();
+            SecondaryEmisionMonitorChannelNumberTextBox.Text = Settings.Default.SecondaryEmisionMonitorChannelNumber.ToString();
+
+            Channel1AdcNumberTextBox.Text = Settings.Default.Channel1AdcNumber.ToString();
+            Channel1ChannelNumberTextBox.Text = Settings.Default.Channel1ChannelNumber.ToString();
+
+            Channel2AdcNumberTextBox.Text = Settings.Default.Channel2AdcNumber.ToString();
+            Channel2ChannelNumberTextBox.Text = Settings.Default.Channel2ChannelNumber.ToString();
+
+            ArduinoCOMPortTextBox.Text = Settings.Default.ArduinoCOMPort;
+
+
+        }
+        private void UpdateSettings()
+        {
+            Settings.Default.AKONCOMPort = AKONCOMPortTextBox.Text;
+
+            Settings.Default.SecondaryEmisionMonitorAdcNumber = Convert.ToInt32(SecondaryEmisionMonitorAdcNumberTextBox.Text);
+            Settings.Default.SecondaryEmisionMonitorChannelNumber = Convert.ToInt32(SecondaryEmisionMonitorChannelNumberTextBox.Text);
+
+            Settings.Default.Channel1AdcNumber = Convert.ToInt32(Channel1AdcNumberTextBox.Text);
+            Settings.Default.Channel1ChannelNumber = Convert.ToInt32(Channel1ChannelNumberTextBox.Text);
+
+            Settings.Default.Channel2AdcNumber = Convert.ToInt32(Channel2AdcNumberTextBox.Text);
+            Settings.Default.Channel2ChannelNumber = Convert.ToInt32(Channel2ChannelNumberTextBox.Text);
+
+            Settings.Default.ArduinoCOMPort = ArduinoCOMPortTextBox.Text;
+
+            Settings.Default.Save();
+        }
+
         private void GeneralView_Shown(object sender, EventArgs e)
         {
+            InitSettings();
+
+            
+
             // take data from config file
             _diaphragms = new Diaphragms(ConfigReader.GetDiaphragmas());
             _resistors = new Resistors(ConfigReader.GetResistors());
@@ -270,8 +311,25 @@ namespace StepMotorControllerUIPart.View
             zedGraph.Invalidate();
 
         }
+        private void saveSattingsButton_Click(object sender, EventArgs e)
+        {
+            UpdateSettings();
 
-        private void label9_Click(object sender, EventArgs e)
+            MessageBox.Show("Дані збережено");
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
