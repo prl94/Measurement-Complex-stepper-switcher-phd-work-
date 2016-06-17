@@ -11,6 +11,7 @@ using StepMotorControllerUIPart.SerialPortClasses;
 using StepMotorControllerUIPart.UsedTypes;
 using StepMotorControllerUIPart.Logic;
 using StepMotorControllerUIPart.Properties;
+using StepMotorControllerUIPart.SettingsFolder;
 using ZedGraph;
 
 namespace StepMotorControllerUIPart.View
@@ -73,6 +74,9 @@ namespace StepMotorControllerUIPart.View
 
         private void DrawLineGraph(PointPairList list)
         {
+            
+
+
             GraphPane pane = zedGraph.GraphPane;
             pane.Title.Text = "";
             pane.XAxis.Title.Text = "d, CM";
@@ -121,66 +125,43 @@ namespace StepMotorControllerUIPart.View
         }
 
 
-        private void InitSettings()
-        {
-            
-            AKONCOMPortTextBox.Text = Settings.Default.AKONCOMPort;
+      
 
-            SecondaryEmisionMonitorAdcNumberTextBox.Text = Settings.Default.SecondaryEmisionMonitorAdcNumber.ToString();
-            SecondaryEmisionMonitorChannelNumberTextBox.Text = Settings.Default.SecondaryEmisionMonitorChannelNumber.ToString();
-
-            Channel1AdcNumberTextBox.Text = Settings.Default.Channel1AdcNumber.ToString();
-            Channel1ChannelNumberTextBox.Text = Settings.Default.Channel1ChannelNumber.ToString();
-
-            Channel2AdcNumberTextBox.Text = Settings.Default.Channel2AdcNumber.ToString();
-            Channel2ChannelNumberTextBox.Text = Settings.Default.Channel2ChannelNumber.ToString();
-
-            ArduinoCOMPortTextBox.Text = Settings.Default.ArduinoCOMPort;
-
-
-        }
-        private void UpdateSettings()
-        {
-            Settings.Default.AKONCOMPort = AKONCOMPortTextBox.Text;
-
-            Settings.Default.SecondaryEmisionMonitorAdcNumber = Convert.ToInt32(SecondaryEmisionMonitorAdcNumberTextBox.Text);
-            Settings.Default.SecondaryEmisionMonitorChannelNumber = Convert.ToInt32(SecondaryEmisionMonitorChannelNumberTextBox.Text);
-
-            Settings.Default.Channel1AdcNumber = Convert.ToInt32(Channel1AdcNumberTextBox.Text);
-            Settings.Default.Channel1ChannelNumber = Convert.ToInt32(Channel1ChannelNumberTextBox.Text);
-
-            Settings.Default.Channel2AdcNumber = Convert.ToInt32(Channel2AdcNumberTextBox.Text);
-            Settings.Default.Channel2ChannelNumber = Convert.ToInt32(Channel2ChannelNumberTextBox.Text);
-
-            Settings.Default.ArduinoCOMPort = ArduinoCOMPortTextBox.Text;
-
-            Settings.Default.Save();
-        }
 
         private void GeneralView_Shown(object sender, EventArgs e)
         {
             InitSettings();
 
-            
+
 
             // take data from config file
-            _diaphragms = new Diaphragms(ConfigReader.GetDiaphragmas());
-            _resistors = new Resistors(ConfigReader.GetResistors());
-            var secondaryEmisionMonitor = ConfigReader.GetAdress(Constans.SecondaryEmisionMonitorAdcNumber,
-                Constans.SecondaryEmisionMonitorChannelNumber);
-            var channel1 = ConfigReader.GetAdress(Constans.Channel1AdcNumber, Constans.Channel1ChannelNumber);
-            var channel2 = ConfigReader.GetAdress(Constans.Channel2AdcNumber, Constans.Channel2ChannelNumber);
 
-            string arduinoPort = ConfigurationManager.AppSettings["ArduinoPort"];
-            string ADCPort = ConfigurationManager.AppSettings["ADCPort"];
+            //_diaphragms = new Diaphragms(ConfigReader.GetDiaphragmas());
+           //  _resistors = new Resistors(ConfigReader.GetResistors());
+
+            _diaphragms = new Diaphragms();
+            _resistors = new Resistors();
+
+
+
+            var secondaryEmisionMonitor = new Adress(Settings.Default.SecondaryEmisionMonitorAdcNumber, Settings.Default.SecondaryEmisionMonitorChannelNumber);
+            var channel1 = new Adress(Settings.Default.Channel1AdcNumber, Settings.Default.Channel1ChannelNumber);
+            var channel2 = new Adress(Settings.Default.Channel2AdcNumber, Settings.Default.Channel2ChannelNumber);
+
+            string arduinoPort = Settings.Default.ArduinoCOMPort;
+            string ADCPort = Settings.Default.AKONCOMPort;
 
             _connectionParams = new ConnectionParams(ADCPort, arduinoPort, secondaryEmisionMonitor, channel1, channel2);
 
 
-            int stepsCount = Convert.ToInt32(ConfigurationManager.AppSettings["StepsCount"]);
-            int mesuresPerStep = Convert.ToInt32(ConfigurationManager.AppSettings["MesuresPerStep"]);
-            int delayBeforeStep = Convert.ToInt32(ConfigurationManager.AppSettings["DelayBeforeStep"]);
+            int stepsCount = Convert.ToInt32(Settings.Default.StepsCount);
+            int mesuresPerStep = Convert.ToInt32(Settings.Default.MesuresPerStep);
+            int delayBeforeStep = Convert.ToInt32(Settings.Default.DelayBeforeStep);
+
+
             _mesureParameters = new MesureParams(stepsCount, mesuresPerStep, delayBeforeStep);
+
+
         }
 
         private void zedGraph_MouseClick(object sender, MouseEventArgs e)
@@ -287,9 +268,6 @@ namespace StepMotorControllerUIPart.View
             var st = "E 2 =0,423+4,69*R p +0,0532*R p 2";
 
 
-
-
-
             var line = new PointPairList();
             line.Add(x1, y1);
             line.Add(x2, y2);
@@ -319,20 +297,141 @@ namespace StepMotorControllerUIPart.View
 
         }
 
-        private void label14_Click(object sender, EventArgs e)
+
+        private void InitSettings()
         {
+
+            StepsCountTextBox.Text = Settings.Default.StepsCount.ToString();
+            MesuresPerStepTextBox.Text = Settings.Default.MesuresPerStep.ToString();
+            DelayBeforeStepTextBox.Text = Settings.Default.DelayBeforeStep.ToString();
+
+            AKONCOMPortTextBox.Text = Settings.Default.AKONCOMPort;
+
+            SecondaryEmisionMonitorAdcNumberTextBox.Text = Settings.Default.SecondaryEmisionMonitorAdcNumber.ToString();
+            SecondaryEmisionMonitorChannelNumberTextBox.Text = Settings.Default.SecondaryEmisionMonitorChannelNumber.ToString();
+
+            Channel1AdcNumberTextBox.Text = Settings.Default.Channel1AdcNumber.ToString();
+            Channel1ChannelNumberTextBox.Text = Settings.Default.Channel1ChannelNumber.ToString();
+
+            Channel2AdcNumberTextBox.Text = Settings.Default.Channel2AdcNumber.ToString();
+            Channel2ChannelNumberTextBox.Text = Settings.Default.Channel2ChannelNumber.ToString();
+
+            ArduinoCOMPortTextBox.Text = Settings.Default.ArduinoCOMPort;
+
+            R1textBox.Text = ResistorsStn.Default.R1.ToString();
+            R2textBox.Text = ResistorsStn.Default.R2.ToString();
+            R3textBox.Text = ResistorsStn.Default.R3.ToString();
+            R4textBox.Text = ResistorsStn.Default.R4.ToString();
+            R5textBox.Text = ResistorsStn.Default.R5.ToString();
+            R6textBox.Text = ResistorsStn.Default.R6.ToString();
+            R7textBox.Text = ResistorsStn.Default.R7.ToString();
+            R8textBox.Text = ResistorsStn.Default.R8.ToString();
+            R9textBox.Text = ResistorsStn.Default.R9.ToString();
+            R10textBox.Text = ResistorsStn.Default.R10.ToString();
+            R11textBox.Text = ResistorsStn.Default.R11.ToString();
+            R12textBox.Text = ResistorsStn.Default.R12.ToString();
+            R13textBox.Text = ResistorsStn.Default.R13.ToString();
+            R14textBox.Text = ResistorsStn.Default.R14.ToString();
+            R15textBox.Text = ResistorsStn.Default.R15.ToString();
+            R16textBox.Text = ResistorsStn.Default.R16.ToString();
+            R17textBox.Text = ResistorsStn.Default.R17.ToString();
+            R18textBox.Text = ResistorsStn.Default.R18.ToString();
+            R19textBox.Text = ResistorsStn.Default.R19.ToString();
+            R20textBox.Text = ResistorsStn.Default.R20.ToString();
+
+            D1textBox.Text = DiaphragmsStn.Default.D1.ToString();
+            D2textBox.Text = DiaphragmsStn.Default.D2.ToString();
+            D3textBox.Text = DiaphragmsStn.Default.D3.ToString();
+            D4textBox.Text = DiaphragmsStn.Default.D4.ToString();
+            D5textBox.Text = DiaphragmsStn.Default.D5.ToString();
+            D6textBox.Text = DiaphragmsStn.Default.D6.ToString();
+            D7textBox.Text = DiaphragmsStn.Default.D7.ToString();
+            D8textBox.Text = DiaphragmsStn.Default.D8.ToString();
+            D9textBox.Text = DiaphragmsStn.Default.D9.ToString();
+            D10textBox.Text = DiaphragmsStn.Default.D10.ToString();
+            D11textBox.Text = DiaphragmsStn.Default.D11.ToString();
+            D12textBox.Text = DiaphragmsStn.Default.D12.ToString();
+            D13textBox.Text = DiaphragmsStn.Default.D13.ToString();
+            D14textBox.Text = DiaphragmsStn.Default.D14.ToString();
+            D15textBox.Text = DiaphragmsStn.Default.D15.ToString();
+            D16textBox.Text = DiaphragmsStn.Default.D16.ToString();
+            D17textBox.Text = DiaphragmsStn.Default.D17.ToString();
+            D18textBox.Text = DiaphragmsStn.Default.D18.ToString();
+            D19textBox.Text = DiaphragmsStn.Default.D19.ToString();
+            D20textBox.Text = DiaphragmsStn.Default.D20.ToString();
+
 
         }
 
-        private void label18_Click(object sender, EventArgs e)
+        private void UpdateSettings()
         {
+            Settings.Default.StepsCount = Convert.ToInt32(StepsCountTextBox.Text);
+            Settings.Default.MesuresPerStep = Convert.ToInt32(MesuresPerStepTextBox.Text);
+            Settings.Default.DelayBeforeStep = Convert.ToInt32(DelayBeforeStepTextBox.Text);
+
+            Settings.Default.AKONCOMPort = AKONCOMPortTextBox.Text;
+
+            Settings.Default.SecondaryEmisionMonitorAdcNumber = Convert.ToByte(SecondaryEmisionMonitorAdcNumberTextBox.Text);
+            Settings.Default.SecondaryEmisionMonitorChannelNumber = Convert.ToByte(SecondaryEmisionMonitorChannelNumberTextBox.Text);
+
+            Settings.Default.Channel1AdcNumber = Convert.ToByte(Channel1AdcNumberTextBox.Text);
+            Settings.Default.Channel1ChannelNumber = Convert.ToByte(Channel1ChannelNumberTextBox.Text);
+
+            Settings.Default.Channel2AdcNumber = Convert.ToByte(Channel2AdcNumberTextBox.Text);
+            Settings.Default.Channel2ChannelNumber = Convert.ToByte(Channel2ChannelNumberTextBox.Text);
+
+            Settings.Default.ArduinoCOMPort = ArduinoCOMPortTextBox.Text;
+
+            Settings.Default.Save();
+
+            ResistorsStn.Default.R1 = Convert.ToSingle(R1textBox.Text);
+            ResistorsStn.Default.R2 = Convert.ToSingle(R2textBox.Text);
+            ResistorsStn.Default.R3 = Convert.ToSingle(R3textBox.Text);
+            ResistorsStn.Default.R4 = Convert.ToSingle(R4textBox.Text);
+            ResistorsStn.Default.R5 = Convert.ToSingle(R5textBox.Text);
+            ResistorsStn.Default.R6 = Convert.ToSingle(R6textBox.Text);
+            ResistorsStn.Default.R7 = Convert.ToSingle(R7textBox.Text);
+            ResistorsStn.Default.R8 = Convert.ToSingle(R8textBox.Text);
+            ResistorsStn.Default.R9 = Convert.ToSingle(R9textBox.Text);
+            ResistorsStn.Default.R10 = Convert.ToSingle(R10textBox.Text);
+            ResistorsStn.Default.R11 = Convert.ToSingle(R11textBox.Text);
+            ResistorsStn.Default.R12 = Convert.ToSingle(R12textBox.Text);
+            ResistorsStn.Default.R13 = Convert.ToSingle(R13textBox.Text);
+            ResistorsStn.Default.R14 = Convert.ToSingle(R14textBox.Text);
+            ResistorsStn.Default.R15 = Convert.ToSingle(R15textBox.Text);
+            ResistorsStn.Default.R16 = Convert.ToSingle(R16textBox.Text);
+            ResistorsStn.Default.R17 = Convert.ToSingle(R17textBox.Text);
+            ResistorsStn.Default.R18 = Convert.ToSingle(R18textBox.Text);
+            ResistorsStn.Default.R19 = Convert.ToSingle(R19textBox.Text);
+            ResistorsStn.Default.R20 = Convert.ToSingle(R20textBox.Text);
+
+            ResistorsStn.Default.Save();
+
+            DiaphragmsStn.Default.D1 = Convert.ToSingle(D1textBox.Text);
+            DiaphragmsStn.Default.D2 = Convert.ToSingle(D2textBox.Text);
+            DiaphragmsStn.Default.D3 = Convert.ToSingle(D3textBox.Text);
+            DiaphragmsStn.Default.D4 = Convert.ToSingle(D4textBox.Text);
+            DiaphragmsStn.Default.D5 = Convert.ToSingle(D5textBox.Text);
+            DiaphragmsStn.Default.D6 = Convert.ToSingle(D6textBox.Text);
+            DiaphragmsStn.Default.D7 = Convert.ToSingle(D7textBox.Text);
+            DiaphragmsStn.Default.D8 = Convert.ToSingle(D8textBox.Text);
+            DiaphragmsStn.Default.D9 = Convert.ToSingle(D9textBox.Text);
+            DiaphragmsStn.Default.D10 = Convert.ToSingle(D10textBox.Text);
+            DiaphragmsStn.Default.D11 = Convert.ToSingle(D11textBox.Text);
+            DiaphragmsStn.Default.D12 = Convert.ToSingle(D12textBox.Text);
+            DiaphragmsStn.Default.D13 = Convert.ToSingle(D13textBox.Text);
+            DiaphragmsStn.Default.D14 = Convert.ToSingle(D14textBox.Text);
+            DiaphragmsStn.Default.D15 = Convert.ToSingle(D15textBox.Text);
+            DiaphragmsStn.Default.D16 = Convert.ToSingle(D16textBox.Text);
+            DiaphragmsStn.Default.D17 = Convert.ToSingle(D17textBox.Text);
+            DiaphragmsStn.Default.D18 = Convert.ToSingle(D18textBox.Text);
+            DiaphragmsStn.Default.D19 = Convert.ToSingle(D19textBox.Text);
+            DiaphragmsStn.Default.D20 = Convert.ToSingle(D20textBox.Text);
+
+            DiaphragmsStn.Default.Save();
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 

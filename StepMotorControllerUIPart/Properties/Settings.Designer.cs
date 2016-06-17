@@ -26,9 +26,9 @@ namespace StepMotorControllerUIPart.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public int SecondaryEmisionMonitorAdcNumber {
+        public byte SecondaryEmisionMonitorAdcNumber {
             get {
-                return ((int)(this["SecondaryEmisionMonitorAdcNumber"]));
+                return ((byte)(this["SecondaryEmisionMonitorAdcNumber"]));
             }
             set {
                 this["SecondaryEmisionMonitorAdcNumber"] = value;
@@ -38,9 +38,9 @@ namespace StepMotorControllerUIPart.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int SecondaryEmisionMonitorChannelNumber {
+        public byte SecondaryEmisionMonitorChannelNumber {
             get {
-                return ((int)(this["SecondaryEmisionMonitorChannelNumber"]));
+                return ((byte)(this["SecondaryEmisionMonitorChannelNumber"]));
             }
             set {
                 this["SecondaryEmisionMonitorChannelNumber"] = value;
@@ -50,9 +50,9 @@ namespace StepMotorControllerUIPart.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public int Channel1AdcNumber {
+        public byte Channel1AdcNumber {
             get {
-                return ((int)(this["Channel1AdcNumber"]));
+                return ((byte)(this["Channel1AdcNumber"]));
             }
             set {
                 this["Channel1AdcNumber"] = value;
@@ -62,9 +62,9 @@ namespace StepMotorControllerUIPart.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public int Channel1ChannelNumber {
+        public byte Channel1ChannelNumber {
             get {
-                return ((int)(this["Channel1ChannelNumber"]));
+                return ((byte)(this["Channel1ChannelNumber"]));
             }
             set {
                 this["Channel1ChannelNumber"] = value;
@@ -74,9 +74,9 @@ namespace StepMotorControllerUIPart.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("2")]
-        public int Channel2AdcNumber {
+        public byte Channel2AdcNumber {
             get {
-                return ((int)(this["Channel2AdcNumber"]));
+                return ((byte)(this["Channel2AdcNumber"]));
             }
             set {
                 this["Channel2AdcNumber"] = value;
@@ -86,9 +86,9 @@ namespace StepMotorControllerUIPart.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public int Channel2ChannelNumber {
+        public byte Channel2ChannelNumber {
             get {
-                return ((int)(this["Channel2ChannelNumber"]));
+                return ((byte)(this["Channel2ChannelNumber"]));
             }
             set {
                 this["Channel2ChannelNumber"] = value;
@@ -116,6 +116,42 @@ namespace StepMotorControllerUIPart.Properties {
             }
             set {
                 this["ArduinoCOMPort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public int StepsCount {
+            get {
+                return ((int)(this["StepsCount"]));
+            }
+            set {
+                this["StepsCount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public int MesuresPerStep {
+            get {
+                return ((int)(this["MesuresPerStep"]));
+            }
+            set {
+                this["MesuresPerStep"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public int DelayBeforeStep {
+            get {
+                return ((int)(this["DelayBeforeStep"]));
+            }
+            set {
+                this["DelayBeforeStep"] = value;
             }
         }
     }

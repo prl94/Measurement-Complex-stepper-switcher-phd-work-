@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using StepMotorControllerUIPart.SettingsFolder;
 
 namespace StepMotorControllerUIPart.UsedTypes
 {
@@ -18,6 +19,17 @@ namespace StepMotorControllerUIPart.UsedTypes
 
                 string key = "d" + (i + 1);
                 DiaphragmsArray[i] = diaphragms[key];
+            }
+        }
+
+        public Diaphragms()
+        {
+            var count = DiaphragmsStn.Default.Properties.Count;
+            DiaphragmsArray = new float[count];
+            for (int i = 0; i < count; i++)
+            {
+                string key = "D" + (i + 1);
+                DiaphragmsArray[i] = (float)DiaphragmsStn.Default[key];
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using StepMotorControllerUIPart.Helper;
 using StepMotorControllerUIPart.Logic;
 using StepMotorControllerUIPart.Properties;
+using StepMotorControllerUIPart.SettingsFolder;
 using StepMotorControllerUIPart.UsedTypes;
 using StepMotorControllerUIPart.View;
 
@@ -18,8 +19,8 @@ namespace StepMotorControllerUIPart
         [STAThread]
         static void Main()
         {
-           
-         
+            var i = DiaphragmsStn.Default.Properties["D1"];
+
 
             double[] xV = {0,0.052999999,0.105999999,0.200999998, 0.295999996,0.48399999, 0.671999983, 0.859999977, 1.047999971, 1.235999964, 1.423999958, 1.611999951,
 1.799999945,

@@ -60,10 +60,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SettingsFolder\ResistorsStn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ResistorsStn.settings</DependentUpon>
+    </Compile>
     <Compile Include="SerialPortClasses\test\ArduinoTest.cs" />
     <Compile Include="SerialPortClasses\IArduino.cs" />
     <Compile Include="SerialPortClasses\IModBus.cs" />
     <Compile Include="SerialPortClasses\test\ModBusTest.cs" />
+    <Compile Include="SettingsFolder\DiaphragmsStn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DiaphragmsStn.settings</DependentUpon>
+    </Compile>
     <Compile Include="UsedTypes\ConnectionParams.cs" />
     <Compile Include="UsedTypes\Adress.cs" />
     <Compile Include="UsedTypes\Constans.cs" />
@@ -96,6 +106,14 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SettingsFolder\ResistorsStn.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ResistorsStn.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SettingsFolder\DiaphragmsStn.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DiaphragmsStn.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup />

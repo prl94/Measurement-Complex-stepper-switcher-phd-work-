@@ -61,11 +61,11 @@ namespace StepMotorControllerUIPart.Logic
         public static List<Mesure> StartMesures(MesureParams mesureParams, ConnectionParams connectionParams, Resistors resistors, Diaphragms diaphragms)
         {
 
-            IModBus adc = new ModBus(connectionParams.ModBusComPort);
-            IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
+                //IModBus adc = new ModBus(connectionParams.ModBusComPort);
+                // IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
 
-            //IModBus adc = new ModBusTest();
-           // IArduino arduino = new ArduinoTest();
+            IModBus adc = new ModBusTest();
+            IArduino arduino = new ArduinoTest();
 
             adc.Connect();
             arduino.Connect();
@@ -81,7 +81,7 @@ namespace StepMotorControllerUIPart.Logic
                 logger.Trace("Mesure for {0} step", i);
 
                 arduino.MakeOneStep();
-                Thread.Sleep(mesureParams.DelayAfterStep);
+                Thread.Sleep(mesureParams.DelayBeforeStep);
 
                 var length = mesureParams.MesuresCount;
                 float[] dataFromOscillatorArray = new float[length],
@@ -93,8 +93,8 @@ namespace StepMotorControllerUIPart.Logic
                     dataFromOscillatorArray[j] = adc.Read(connectionParams.SecondaryEmisionMonitorAdress);
                     dataFromStepper1Array[j] = adc.Read(connectionParams.Channel1Adress);
                     dataFromStepper2Array[j] = adc.Read(connectionParams.Channel2Adress);
-
                 }
+
                 stepper1List.Add(new Mesure(i, dataFromOscillatorArray, dataFromStepper1Array,resistors.ResistorsArray[i-1],diaphragms.DiaphragmsArray[i-1]));
                 stepper2List.Add(new Mesure(i + 10, dataFromOscillatorArray, dataFromStepper2Array,resistors.ResistorsArray[(i-1)+10],diaphragms.DiaphragmsArray[(i-1)+10]));
 
