@@ -48,19 +48,6 @@ namespace StepMotorControllerUIPart.View
 
         }
 
-        private void startMesures()
-        {
-         //   GeneralLogic.MesureStep += GeneralLogic_MesureStep;
-
-            
-        }
-
-   /*     private void GeneralLogic_MesureStep(int obj)
-        {
-
-            stepCountLabel.Text  = Convert.ToString(obj);
-            }*/
-
         private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
              //Arduino.Connect(serialPortsComboBox.SelectedItem.ToString());
@@ -74,8 +61,8 @@ namespace StepMotorControllerUIPart.View
 
         private void DrawLineGraph(PointPairList list)
         {
-            
 
+            
 
             GraphPane pane = zedGraph.GraphPane;
             pane.Title.Text = "";
@@ -84,7 +71,25 @@ namespace StepMotorControllerUIPart.View
             pane.Legend.IsVisible = false;
             pane.CurveList.Clear();
 
-  
+
+            GraphObjList obgList = new GraphObjList();
+
+
+            // *** Выведем текст с фоном по умолчанию (с белым фоном) ***
+            for (int i = 0; i < list.Count; i++)
+            {
+
+                TextObj temp = new TextObj((i + 1).ToString(), list[i].X + 0.03, list[i].Y + 0.05);
+
+                // Отключим рамку вокруг текста
+                temp.FontSpec.Border.IsVisible = false;
+                temp.FontSpec.Fill = new Fill();
+                obgList.Add(temp);
+
+            }
+            pane.GraphObjList.AddRange(obgList);
+
+
             LineItem myCurve = pane.AddCurve("Sinc", list, Color.Blue, SymbolType.Circle);
             
             myCurve.Symbol.Fill.Type = FillType.Solid;
@@ -125,20 +130,8 @@ namespace StepMotorControllerUIPart.View
         }
 
 
-      
-
-
-        private void GeneralView_Shown(object sender, EventArgs e)
+        private void updateBaseObjects()
         {
-            InitSettings();
-
-
-
-            // take data from config file
-
-            //_diaphragms = new Diaphragms(ConfigReader.GetDiaphragmas());
-           //  _resistors = new Resistors(ConfigReader.GetResistors());
-
             _diaphragms = new Diaphragms();
             _resistors = new Resistors();
 
@@ -161,7 +154,13 @@ namespace StepMotorControllerUIPart.View
 
             _mesureParameters = new MesureParams(stepsCount, mesuresPerStep, delayBeforeStep);
 
+        }
 
+
+        private void GeneralView_Shown(object sender, EventArgs e)
+        {
+            InitSettings();
+            updateBaseObjects();
         }
 
         private void zedGraph_MouseClick(object sender, MouseEventArgs e)
@@ -292,7 +291,7 @@ namespace StepMotorControllerUIPart.View
         private void saveSattingsButton_Click(object sender, EventArgs e)
         {
             UpdateSettings();
-
+            updateBaseObjects();
             MessageBox.Show("Дані збережено");
 
         }

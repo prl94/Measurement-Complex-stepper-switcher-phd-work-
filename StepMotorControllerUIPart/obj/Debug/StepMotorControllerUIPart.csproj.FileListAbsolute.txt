@@ -116,3 +116,4 @@ E:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\
 E:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csproj.GenerateResource.Cache
 E:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.exe
 E:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.pdb
+E:\Measurement-Complex-stepper-switcher-phd-work-\StepMotorControllerUIPart\obj\Debug\StepMotorControllerUIPart.csprojResolveAssemblyReference.cache

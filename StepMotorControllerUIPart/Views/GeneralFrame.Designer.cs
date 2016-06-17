@@ -166,7 +166,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(25, 290);
+            this.startButton.Location = new System.Drawing.Point(36, 21);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(101, 23);
             this.startButton.TabIndex = 4;
@@ -186,7 +186,7 @@
             // 
             // zedGraph
             // 
-            this.zedGraph.Location = new System.Drawing.Point(362, 6);
+            this.zedGraph.Location = new System.Drawing.Point(210, 3);
             this.zedGraph.Name = "zedGraph";
             this.zedGraph.ScrollGrace = 0D;
             this.zedGraph.ScrollMaxX = 0D;
@@ -195,7 +195,7 @@
             this.zedGraph.ScrollMinX = 0D;
             this.zedGraph.ScrollMinY = 0D;
             this.zedGraph.ScrollMinY2 = 0D;
-            this.zedGraph.Size = new System.Drawing.Size(591, 381);
+            this.zedGraph.Size = new System.Drawing.Size(752, 381);
             this.zedGraph.TabIndex = 6;
             this.zedGraph.MouseClick += new System.Windows.Forms.MouseEventHandler(this.zedGraph_MouseClick);
             // 
@@ -234,7 +234,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 389);
+            this.label5.Location = new System.Drawing.Point(26, 361);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 15;
@@ -244,7 +244,7 @@
             // 
             this.stepCountLabel.AutoSize = true;
             this.stepCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stepCountLabel.Location = new System.Drawing.Point(117, 386);
+            this.stepCountLabel.Location = new System.Drawing.Point(108, 358);
             this.stepCountLabel.Name = "stepCountLabel";
             this.stepCountLabel.Size = new System.Drawing.Size(16, 18);
             this.stepCountLabel.TabIndex = 16;
