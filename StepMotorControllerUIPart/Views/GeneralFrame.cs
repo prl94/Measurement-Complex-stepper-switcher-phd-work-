@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Windows.Forms;
 using StepMotorControllerUIPart.Helper;
@@ -29,14 +30,25 @@ namespace StepMotorControllerUIPart.View
 
         public GeneralView()
         {
+
+
             InitializeComponent();
-            serialPortsComboBox.Items.AddRange(Arduino.GetAvaiblePorts());
-            arduinoComPortLabel.BackColor = Color.Red;
+          
             calibrationLabel.BackColor = Color.Red;
         }
   
         private void startButton_Click(object sender, EventArgs e)
         {
+            
+
+
+            _myThread = new Thread(new ThreadStart(_runMesure));
+            _myThread.Start();
+        }
+
+        void _runMesure()
+        {
+            GeneralLogic.MesureStep += GeneralLogic_MesureStep;
             var mesures = GeneralLogic.StartMesures(_mesureParameters, _connectionParams, _resistors, _diaphragms);
 
             WritingToFile.WriteMesureToFile(mesures);
@@ -46,17 +58,12 @@ namespace StepMotorControllerUIPart.View
 
             DrawLineGraph(pointPairList);
 
+            
         }
 
-        private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void GeneralLogic_MesureStep(int obj)
         {
-             //Arduino.Connect(serialPortsComboBox.SelectedItem.ToString());
-            arduinoComPortLabel.BackColor = Color.GreenYellow;
-            //   Console.WriteLine(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
-            //  if (!state)
-            {
-            //    ShowMessageBox(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
-            }
+            
         }
 
         private void DrawLineGraph(PointPairList list)
@@ -227,6 +234,8 @@ namespace StepMotorControllerUIPart.View
             }
 
             _calculateLine(linearSection);
+
+
         }
 
         private void _calculateLine(SortedList<double, double> list)
@@ -250,7 +259,10 @@ namespace StepMotorControllerUIPart.View
             double b = ln.b;
 
 
-            RLabel.Text = Math.Abs( Math.Round(b/a, 4)).ToString();
+            RLabel.Text = calculateEnergy(Math.Abs(Math.Round(b / a, 4))).ToString();
+
+
+    
             // y = a*x + b 
 
             double x1 = 0;
@@ -431,9 +443,61 @@ namespace StepMotorControllerUIPart.View
 
         }
 
+        private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void f1_CheckedChanged(object sender, EventArgs e)
+        {
+            f2.Checked = false;
+            f3.Checked = false;
+        }
+
+        private void f2_CheckedChanged(object sender, EventArgs e)
+        {
+            f1.Checked = false;
+            f3.Checked = false;
+        }
+
+        private void f3_CheckedChanged(object sender, EventArgs e)
+        {
+            f1.Checked = false;
+            f2.Checked = false;
+        }
+
+        private string calculateEnergy(double Rp)
+        {
+            String Energy = "";
+            if (f1.Checked)
+            {
+                Energy = (0.22 + 1.98*Rp + 0.0025*Rp*Rp).ToString();
+            }
+            else if(f2.Checked)
+            {
+                Energy = (0.423 + 4.69 * Rp +0.0532 * Rp * Rp).ToString();
+            }
+            else if (f3.Checked)
+            {
+                Energy = (0.2 + 5.09 * Rp).ToString();
+            }
+            else
+            {
+                Energy = 0.ToString();
+            }
+
+            return Energy;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
-    }
+
+
+}
     
 
