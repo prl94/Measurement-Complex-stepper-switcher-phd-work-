@@ -1,3 +1,0 @@
-#   U_SEM                    StDev_SEM                U_Diaphragm              StDev_Diaphragm          Inorm                    R         D         
-
-

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Threading;
 using System.Windows.Forms;
 using StepMotorControllerUIPart.Helper;
@@ -21,6 +22,8 @@ namespace StepMotorControllerUIPart.View
 
         Thread _myThread;
 
+        private double R;
+
         private Diaphragms _diaphragms;
         private Resistors _resistors;
         private ConnectionParams _connectionParams;
@@ -29,14 +32,25 @@ namespace StepMotorControllerUIPart.View
 
         public GeneralView()
         {
+
+
             InitializeComponent();
-            serialPortsComboBox.Items.AddRange(Arduino.GetAvaiblePorts());
-            arduinoComPortLabel.BackColor = Color.Red;
+          
             calibrationLabel.BackColor = Color.Red;
         }
   
         private void startButton_Click(object sender, EventArgs e)
         {
+            
+
+
+            _myThread = new Thread(new ThreadStart(_runMesure));
+            _myThread.Start();
+        }
+
+        void _runMesure()
+        {
+            GeneralLogic.MesureStep += GeneralLogic_MesureStep;
             var mesures = GeneralLogic.StartMesures(_mesureParameters, _connectionParams, _resistors, _diaphragms);
 
             WritingToFile.WriteMesureToFile(mesures);
@@ -46,23 +60,17 @@ namespace StepMotorControllerUIPart.View
 
             DrawLineGraph(pointPairList);
 
+            
         }
 
-        private void serialPortsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void GeneralLogic_MesureStep(int obj)
         {
-             //Arduino.Connect(serialPortsComboBox.SelectedItem.ToString());
-            arduinoComPortLabel.BackColor = Color.GreenYellow;
-            //   Console.WriteLine(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
-            //  if (!state)
-            {
-            //    ShowMessageBox(@"Port " + serialPortsComboBox.SelectedItem + @"is open? " + state);
-            }
+            
         }
 
         private void DrawLineGraph(PointPairList list)
         {
 
-            
 
             GraphPane pane = zedGraph.GraphPane;
             pane.Title.Text = "";
@@ -126,7 +134,10 @@ namespace StepMotorControllerUIPart.View
                 MessageBox.Show("Калібрація закінчилась, кроковий двигун в позиції 1В");
                 calibrationLabel.BackColor = Color.GreenYellow;
             }
-            MessageBox.Show("Калібрація закінчилась невдало");
+            else
+            {
+                MessageBox.Show("Калібрація закінчилась невдало");
+            }
         }
 
 
@@ -209,7 +220,7 @@ namespace StepMotorControllerUIPart.View
             }
         }
 
-
+        // draw line
         private void button1_Click(object sender, EventArgs e)
         {
             int point1 = Convert.ToInt32(dot1TextBox.Text) - 1;
@@ -227,6 +238,8 @@ namespace StepMotorControllerUIPart.View
             }
 
             _calculateLine(linearSection);
+
+
         }
 
         private void _calculateLine(SortedList<double, double> list)
@@ -248,9 +261,11 @@ namespace StepMotorControllerUIPart.View
 
             double a = ln.a;
             double b = ln.b;
+            R = Math.Abs(Math.Round(b / a, 4));
 
 
-            RLabel.Text = Math.Abs( Math.Round(b/a, 4)).ToString();
+
+    
             // y = a*x + b 
 
             double x1 = 0;
@@ -431,9 +446,127 @@ namespace StepMotorControllerUIPart.View
 
         }
 
+        private void checkedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void f1_CheckedChanged(object sender, EventArgs e)
+        {
+            f2.Checked = false;
+            f3.Checked = false;
+        }
+
+        private void f2_CheckedChanged(object sender, EventArgs e)
+        {
+            f1.Checked = false;
+            f3.Checked = false;
+        }
+
+        private void f3_CheckedChanged(object sender, EventArgs e)
+        {
+            f1.Checked = false;
+            f2.Checked = false;
+        }
+
+        private string calculateEnergy(double Rp)
+        {
+            Energy energy;
+            double e;
+            String formula;
+
+            if (f1.Checked)
+            {
+                double cRp = Rp*2.7;
+                e = (0.22 + 1.98*cRp + 0.0025*cRp*cRp);
+                formula = "0,22+1,98*Rp +0,0025*Rp^2";
+
+            }
+            else if(f2.Checked)
+            {
+                e = (0.423 + 4.69 * Rp +0.0532 * Rp * Rp);
+                formula = "0,423+4,69*Rp +0,0532*Rp^2";
+
+            }
+            else if (f3.Checked)
+            {
+                e = (0.2 + 5.09 * Rp);
+                formula = "0,2+5,09*Rp";
+
+            }
+            else
+            {
+                e = 0;
+                formula = "formula not selected";
+
+            }
+
+            energy = new Energy(formula, e);
+
+            WritingToFile.WriteEnergyToFile(energy);
+            return energy.Value.ToString();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void culculateEnergy_Click(object sender, EventArgs e)
+        {
+            string energy = calculateEnergy(R).ToString();
+
+            RLabel.Text = energy;
+
+
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            label61.Text = e.ProgressPercentage.ToString();
+
+            var myclass = e.UserState as MyClass;
+
+            Console.WriteLine(myclass.Name + myclass.LastName);
+        }
+
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+
+            var myclass = new MyClass();
+            int i = 0;
+            while (!backgroundWorker1.CancellationPending)
+            {
+                Thread.Sleep(50);
+                backgroundWorker1.ReportProgress(i, myclass);
+                i++;
+            }
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            backgroundWorker1.RunWorkerAsync();
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("cancle");
+            backgroundWorker1.CancelAsync();
+
+            
+        }
+    }
+
+    class MyClass
+    {
+        public string Name = "Volodymyr";
+        public string LastName = "Parlag";
     }
 
 
-    }
+}
     
 

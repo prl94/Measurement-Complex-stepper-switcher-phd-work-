@@ -12,6 +12,8 @@ namespace StepMotorControllerUIPart.Helper
 
         private static String _fileName;
 
+
+
         public static void WriteMesureToFile(List<Mesure> mesures)
         {
             _fileName = ("виміри " + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss") + ".txt");
@@ -59,6 +61,22 @@ namespace StepMotorControllerUIPart.Helper
 
             writer.WriteLine(sb.ToString());
             writer.Close();
+
+
+
+
+        }
+
+        public static void WriteEnergyToFile(Energy energy)
+        {
+            _fileName = ("виміри " + DateTime.Now.ToString("MM/dd/yyyy HH-mm-ss") + ".txt");
+            String fileName = "3" + _fileName;
+            StreamWriter writer = new StreamWriter(fileName);
+
+
+            writer.WriteLine("Енергія по формулі: "+energy.Formula + " = "+ energy.Value.ToString());
+            writer.Close();
+
 
         }
     }

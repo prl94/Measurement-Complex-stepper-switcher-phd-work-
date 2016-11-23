@@ -1,8 +1,10 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
-using System.Linq;
+ using System.ComponentModel;
+ using System.Linq;
 using System.Threading;
-using NLog;
+ using System.Windows.Forms.VisualStyles;
+ using NLog;
 using RADON.SerialPortClasses;
 using RADON.SerialPortClasses.test;
 using StepMotorControllerUIPart.SerialPortClasses;
@@ -12,6 +14,8 @@ namespace StepMotorControllerUIPart.Logic
 {
     public static class GeneralLogic
     {
+
+
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public static bool Calibration(ConnectionParams connectionParams)
@@ -53,6 +57,8 @@ namespace StepMotorControllerUIPart.Logic
             return false;
         }
 
+
+ 
         public static event Action CalibrationStart;
         public static event Action<int> CalibrationStep;
         public static event Action<bool> CalibrationFinish;
@@ -61,11 +67,11 @@ namespace StepMotorControllerUIPart.Logic
         public static List<Mesure> StartMesures(MesureParams mesureParams, ConnectionParams connectionParams, Resistors resistors, Diaphragms diaphragms)
         {
 
-                //IModBus adc = new ModBus(connectionParams.ModBusComPort);
-                // IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
+                IModBus adc = new ModBus(connectionParams.ModBusComPort);
+                IArduino arduino = new Arduino(connectionParams.ArduinoComPort);
 
-            IModBus adc = new ModBusTest();
-            IArduino arduino = new ArduinoTest();
+           // IModBus adc = new ModBusTest();
+           // IArduino arduino = new ArduinoTest();
 
             adc.Connect();
             arduino.Connect();

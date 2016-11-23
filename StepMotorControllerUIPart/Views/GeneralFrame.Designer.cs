@@ -30,16 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             this.startButton = new System.Windows.Forms.Button();
-            this.serialPortsComboBox = new System.Windows.Forms.ComboBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.zedGraph = new ZedGraph.ZedGraphControl();
-            this.arduinoComPortLabel = new System.Windows.Forms.Label();
             this.calibrationLabel = new System.Windows.Forms.Label();
             this.CalibrationButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.stepCountLabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.generalTabPage = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label61 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.culculateEnergy = new System.Windows.Forms.Button();
+            this.infoTextTextBox = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
             this.RLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,7 +52,10 @@
             this.dot2TextBox = new System.Windows.Forms.TextBox();
             this.dot1TextBox = new System.Windows.Forms.TextBox();
             this.SettingsTabPage = new System.Windows.Forms.TabPage();
-            this.label61 = new System.Windows.Forms.Label();
+            this.f3 = new System.Windows.Forms.CheckBox();
+            this.f2 = new System.Windows.Forms.CheckBox();
+            this.f1 = new System.Windows.Forms.CheckBox();
+            this.label = new System.Windows.Forms.Label();
             this.D20textBox = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.D19textBox = new System.Windows.Forms.TextBox();
@@ -158,6 +165,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.calibrationBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.generalTabPage.SuspendLayout();
             this.SettingsTabPage.SuspendLayout();
@@ -166,7 +174,7 @@
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(36, 21);
+            this.startButton.Location = new System.Drawing.Point(51, 158);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(101, 23);
             this.startButton.TabIndex = 4;
@@ -174,15 +182,12 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // serialPortsComboBox
+            // backgroundWorker1
             // 
-            this.serialPortsComboBox.FormattingEnabled = true;
-            this.serialPortsComboBox.Location = new System.Drawing.Point(29, 453);
-            this.serialPortsComboBox.Name = "serialPortsComboBox";
-            this.serialPortsComboBox.Size = new System.Drawing.Size(86, 21);
-            this.serialPortsComboBox.TabIndex = 5;
-            this.serialPortsComboBox.Text = "COMPORT";
-            this.serialPortsComboBox.SelectedIndexChanged += new System.EventHandler(this.serialPortsComboBox_SelectedIndexChanged);
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             // 
             // zedGraph
             // 
@@ -199,23 +204,12 @@
             this.zedGraph.TabIndex = 6;
             this.zedGraph.MouseClick += new System.Windows.Forms.MouseEventHandler(this.zedGraph_MouseClick);
             // 
-            // arduinoComPortLabel
-            // 
-            this.arduinoComPortLabel.AutoSize = true;
-            this.arduinoComPortLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.arduinoComPortLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.arduinoComPortLabel.Location = new System.Drawing.Point(22, 428);
-            this.arduinoComPortLabel.Name = "arduinoComPortLabel";
-            this.arduinoComPortLabel.Size = new System.Drawing.Size(115, 17);
-            this.arduinoComPortLabel.TabIndex = 12;
-            this.arduinoComPortLabel.Text = "Arduino ComPort";
-            // 
             // calibrationLabel
             // 
             this.calibrationLabel.AutoSize = true;
             this.calibrationLabel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.calibrationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.calibrationLabel.Location = new System.Drawing.Point(172, 428);
+            this.calibrationLabel.Location = new System.Drawing.Point(207, 428);
             this.calibrationLabel.Name = "calibrationLabel";
             this.calibrationLabel.Size = new System.Drawing.Size(79, 17);
             this.calibrationLabel.TabIndex = 13;
@@ -223,9 +217,9 @@
             // 
             // CalibrationButton
             // 
-            this.CalibrationButton.Location = new System.Drawing.Point(175, 448);
+            this.CalibrationButton.Location = new System.Drawing.Point(210, 456);
             this.CalibrationButton.Name = "CalibrationButton";
-            this.CalibrationButton.Size = new System.Drawing.Size(75, 23);
+            this.CalibrationButton.Size = new System.Drawing.Size(75, 27);
             this.CalibrationButton.TabIndex = 14;
             this.CalibrationButton.Text = "Калібрація";
             this.CalibrationButton.UseVisualStyleBackColor = true;
@@ -234,7 +228,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 361);
+            this.label5.Location = new System.Drawing.Point(6, 470);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 15;
@@ -244,7 +238,7 @@
             // 
             this.stepCountLabel.AutoSize = true;
             this.stepCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.stepCountLabel.Location = new System.Drawing.Point(108, 358);
+            this.stepCountLabel.Location = new System.Drawing.Point(88, 467);
             this.stepCountLabel.Name = "stepCountLabel";
             this.stepCountLabel.Size = new System.Drawing.Size(16, 18);
             this.stepCountLabel.TabIndex = 16;
@@ -262,6 +256,12 @@
             // 
             // generalTabPage
             // 
+            this.generalTabPage.Controls.Add(this.button3);
+            this.generalTabPage.Controls.Add(this.label61);
+            this.generalTabPage.Controls.Add(this.button2);
+            this.generalTabPage.Controls.Add(this.culculateEnergy);
+            this.generalTabPage.Controls.Add(this.infoTextTextBox);
+            this.generalTabPage.Controls.Add(this.label62);
             this.generalTabPage.Controls.Add(this.RLabel);
             this.generalTabPage.Controls.Add(this.label8);
             this.generalTabPage.Controls.Add(this.button1);
@@ -274,9 +274,7 @@
             this.generalTabPage.Controls.Add(this.label5);
             this.generalTabPage.Controls.Add(this.CalibrationButton);
             this.generalTabPage.Controls.Add(this.calibrationLabel);
-            this.generalTabPage.Controls.Add(this.arduinoComPortLabel);
             this.generalTabPage.Controls.Add(this.startButton);
-            this.generalTabPage.Controls.Add(this.serialPortsComboBox);
             this.generalTabPage.Location = new System.Drawing.Point(4, 22);
             this.generalTabPage.Name = "generalTabPage";
             this.generalTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -285,38 +283,97 @@
             this.generalTabPage.Text = "Головна";
             this.generalTabPage.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(638, 445);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(577, 428);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(41, 13);
+            this.label61.TabIndex = 18;
+            this.label61.Text = "label61";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(427, 445);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 117;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // culculateEnergy
+            // 
+            this.culculateEnergy.Location = new System.Drawing.Point(15, 372);
+            this.culculateEnergy.Name = "culculateEnergy";
+            this.culculateEnergy.Size = new System.Drawing.Size(119, 23);
+            this.culculateEnergy.TabIndex = 116;
+            this.culculateEnergy.Text = "рахувати енергію";
+            this.culculateEnergy.UseVisualStyleBackColor = true;
+            this.culculateEnergy.Click += new System.EventHandler(this.culculateEnergy_Click);
+            // 
+            // infoTextTextBox
+            // 
+            this.infoTextTextBox.Location = new System.Drawing.Point(6, 38);
+            this.infoTextTextBox.Multiline = true;
+            this.infoTextTextBox.Name = "infoTextTextBox";
+            this.infoTextTextBox.Size = new System.Drawing.Size(198, 103);
+            this.infoTextTextBox.TabIndex = 115;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(78, 13);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(56, 13);
+            this.label62.TabIndex = 114;
+            this.label62.Text = "Info текст";
+            // 
             // RLabel
             // 
             this.RLabel.AutoSize = true;
-            this.RLabel.Location = new System.Drawing.Point(654, 415);
+            this.RLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RLabel.Location = new System.Drawing.Point(62, 337);
             this.RLabel.Name = "RLabel";
-            this.RLabel.Size = new System.Drawing.Size(13, 13);
+            this.RLabel.Size = new System.Drawing.Size(18, 20);
             this.RLabel.TabIndex = 23;
             this.RLabel.Text = "0";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(621, 415);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(19, 337);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.Size = new System.Drawing.Size(37, 20);
             this.label8.TabIndex = 22;
-            this.label8.Text = "R = ";
+            this.label8.Text = "E = ";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(426, 454);
+            this.button1.Location = new System.Drawing.Point(15, 267);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 23);
+            this.button1.Size = new System.Drawing.Size(119, 23);
             this.button1.TabIndex = 21;
-            this.button1.Text = "рахувати";
+            this.button1.Text = "рахувати лінію";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(423, 432);
+            this.label7.Location = new System.Drawing.Point(12, 245);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 20;
@@ -325,7 +382,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(423, 404);
+            this.label6.Location = new System.Drawing.Point(12, 217);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 19;
@@ -333,21 +390,24 @@
             // 
             // dot2TextBox
             // 
-            this.dot2TextBox.Location = new System.Drawing.Point(473, 428);
+            this.dot2TextBox.Location = new System.Drawing.Point(62, 241);
             this.dot2TextBox.Name = "dot2TextBox";
             this.dot2TextBox.Size = new System.Drawing.Size(23, 20);
             this.dot2TextBox.TabIndex = 18;
             // 
             // dot1TextBox
             // 
-            this.dot1TextBox.Location = new System.Drawing.Point(473, 401);
+            this.dot1TextBox.Location = new System.Drawing.Point(62, 214);
             this.dot1TextBox.Name = "dot1TextBox";
             this.dot1TextBox.Size = new System.Drawing.Size(23, 20);
             this.dot1TextBox.TabIndex = 17;
             // 
             // SettingsTabPage
             // 
-            this.SettingsTabPage.Controls.Add(this.label61);
+            this.SettingsTabPage.Controls.Add(this.f3);
+            this.SettingsTabPage.Controls.Add(this.f2);
+            this.SettingsTabPage.Controls.Add(this.f1);
+            this.SettingsTabPage.Controls.Add(this.label);
             this.SettingsTabPage.Controls.Add(this.D20textBox);
             this.SettingsTabPage.Controls.Add(this.label40);
             this.SettingsTabPage.Controls.Add(this.D19textBox);
@@ -464,14 +524,48 @@
             this.SettingsTabPage.Text = "Параметри";
             this.SettingsTabPage.UseVisualStyleBackColor = true;
             // 
-            // label61
+            // f3
             // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(181, 127);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(56, 13);
-            this.label61.TabIndex = 113;
-            this.label61.Text = "Info текст";
+            this.f3.AutoSize = true;
+            this.f3.Location = new System.Drawing.Point(120, 226);
+            this.f3.Name = "f3";
+            this.f3.Size = new System.Drawing.Size(105, 17);
+            this.f3.TabIndex = 117;
+            this.f3.Text = "E = 0,2+5,09*Rp";
+            this.f3.UseVisualStyleBackColor = true;
+            this.f3.CheckedChanged += new System.EventHandler(this.f3_CheckedChanged);
+            // 
+            // f2
+            // 
+            this.f2.AutoSize = true;
+            this.f2.Location = new System.Drawing.Point(120, 203);
+            this.f2.Name = "f2";
+            this.f2.Size = new System.Drawing.Size(189, 17);
+            this.f2.TabIndex = 116;
+            this.f2.Text = "E = 0,423+4,69*Rp +0,0532*Rp^2";
+            this.f2.UseVisualStyleBackColor = true;
+            this.f2.CheckedChanged += new System.EventHandler(this.f2_CheckedChanged);
+            // 
+            // f1
+            // 
+            this.f1.AutoSize = true;
+            this.f1.Location = new System.Drawing.Point(120, 180);
+            this.f1.Name = "f1";
+            this.f1.Size = new System.Drawing.Size(183, 17);
+            this.f1.TabIndex = 115;
+            this.f1.Text = "E = 0,22+1,98*Rp +0,0025*Rp^2";
+            this.f1.UseVisualStyleBackColor = true;
+            this.f1.CheckedChanged += new System.EventHandler(this.f1_CheckedChanged);
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label.Location = new System.Drawing.Point(146, 148);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(117, 17);
+            this.label.TabIndex = 113;
+            this.label.Text = "Формула Енергії";
             // 
             // D20textBox
             // 
@@ -1377,10 +1471,8 @@
 
         #endregion
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.ComboBox serialPortsComboBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private ZedGraph.ZedGraphControl zedGraph;
-        private System.Windows.Forms.Label arduinoComPortLabel;
         private System.Windows.Forms.Label calibrationLabel;
         private System.Windows.Forms.Button CalibrationButton;
         private System.Windows.Forms.Label label5;
@@ -1504,7 +1596,17 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox infoTextTextBox;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.CheckBox f1;
+        private System.Windows.Forms.CheckBox f3;
+        private System.Windows.Forms.CheckBox f2;
+        private System.Windows.Forms.Button culculateEnergy;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Button button3;
+        private System.ComponentModel.BackgroundWorker calibrationBackgroundWorker;
     }
 }
 
